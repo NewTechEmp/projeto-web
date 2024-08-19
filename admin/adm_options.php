@@ -21,7 +21,7 @@
                 <div class="btn-group">
                     <a href="produtos_lista.php">
                         <button class="btn btn-danger">
-                            LISTAR
+                            LISTA
                         </button>
                     </a>
                 </div><!-- fecha btn-group -->
@@ -112,33 +112,7 @@
 <!-- fecha ADM USUÁRIOS -->
  
 <!-- INICIO RESERVA -->
-<div class="col-sm-6 col-md-4">
-    <div class="thumbnail alert-success">
-        <img src="../imagens/icone_user.png" alt="">
-        <br>
-        <div class="alert-success">
-            <div class="btn-group btn-group-justified" role="group">
-                <div class="btn-group">
-                    <button class="btn btn-default disabled" role="alert" style="cursor: default;">
-                        RESERVAS
-                    </button>
-                </div><!-- fecha btn-group -->
-            </div><!-- fecha btn-group-justified -->
- 
-            <div class="btn-group btn-group-justified " role="group">
-                <div class="btn-group">
-                    <a href="reservas_lista.php">
-                        <button class="btn btn-success">
-                            LISTAR
-                        </button>
-                    </a>
-                </div><!-- fecha btn-group -->
-                
-            </div><!-- fecha btn-group-justified -->
- 
-        </div><!-- fecha alert-warning -->
-    </div><!-- fecha thumbnail -->
-</div><!-- fecha col -->
+
 <!-- FIM RESERVA -->
  
 </div><!-- fecha row -->

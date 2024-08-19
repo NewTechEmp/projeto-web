@@ -1,5 +1,5 @@
 
-<nav class="nav navbar-inverse">
+<nav class="nav navbar-inverse navbar-fixed-top">
 <div class="container-fluid">
     <!-- Agrupamento para exibição Mobile -->
     <div class="navbar-header">
@@ -26,7 +26,6 @@
             <li><a href="produtos_lista.php">PRODUTOS</a></li>
             <li><a href="tipos_lista.php">TIPOS</a></li>
             <li><a href="usuarios_lista.php">USUÁRIOS</a></li>
-            <li><a href="reserva_adm.php">RESERVA</a></li>
             <li class="active">
                 <a href="../index.php">
                     <span class="glyphicon glyphicon-home"></span>

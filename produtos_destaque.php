@@ -14,7 +14,7 @@ $num_linhas = $lista->num_rows;
  
 <?php if($num_linhas > 0) {  ?>
     <h2 class="breadcrum alert-success">
-        Destaques
+        Produtos em destaque !
     </h2>
     <div class="row">
         <?php do{ ?>
@@ -23,11 +23,11 @@ $num_linhas = $lista->num_rows;
                     <a href="produto_detalhes.php?id=<?php echo $row_produtos ['id']?>">
                         <img src="images/<?php echo $row_produtos['imagem'] ?>" alt="" class="img-responsive img-rounded">
                     </a>
-                    <div class="caption text-right bg-success">
-                        <h3 class="text-danger">
+                    <div class="caption text-right bg-secondary">
+                        <h3 class="text-success">
                             <strong><?php echo $row_produtos['descricao'] ?></strong>
                         </h3>
-                        <p class="text-warning">
+                        <p class="text-danger">
                             <strong><?php echo $row_produtos['rotulo'] ?></strong>
                         </p>
                         <p class="text-left">
