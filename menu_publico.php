@@ -7,7 +7,7 @@ $rows_tipo = $lista_tipo ->fetch_all();
 <nav class="navbar navbar-expanded-md navbar-fixed-top navbar-light navbar-inverse">
     <div class="container-fluid">
         <!-- agrupamento Mobile -->
-        <div class="navbar-header">
+        <!-- <div class="navbar-header">
             <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#menupublico"
                 aria-expanded="false">
                 <span class="sr-only">toggle Navigation</span>
@@ -15,15 +15,22 @@ $rows_tipo = $lista_tipo ->fetch_all();
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="index.php" class="navbar-brand">
+            <a href="index.php" class="logo">
                 <img src="images/logo-cowa.svg" alt="Logotipo Cowabunga">
             </a>
-        </div>
+        </div> -->
+
+
         <!-- Fecha agrupamento Mobile -->
         <!-- nav direita -->
         <div class="collapse navbar-collapse" id="menupublico">
+            <div class="marquee">
+                <marquee behavior="scroll" direction="left" bgcolor="#cc7722"> COWABUNGA!!!</marquee>
+            </div>
+            
             <ul class="nav navbar-nav navbar-right">
                 <li class="active">
+
                     <a href="index.php">
                         <span class="glyphicon glyphicon-home"></span>
                     </a>

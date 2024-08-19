@@ -24,7 +24,7 @@ $numlinhasDestaque = $listaDestaque->num_rows;
     <?php  include 'menu_publico.php'?>
     <div class="container">
         <h2 class="breadcrumb alert-danger">
-            <a href="index.php">
+            <a>
                 <button class="btn btn-danger">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </button>

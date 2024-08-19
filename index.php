@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="css/estilo.css">
     <!-- link bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- FAVICON -->
+    <link rel="shortcut icon" href="favicon.ico" type="images/favicon.png"> 
     <title>Cowabunga Pizzaria</title>
 </head>
 

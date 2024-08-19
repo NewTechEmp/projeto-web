@@ -15,7 +15,7 @@ $numLinhas = $listaPorTipo->num_rows;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilo.css">
-    <title>CHULETA | QUENTE</title>
+    <title>COWABUNGA | TIPOS</title>
 </head>
 <body class="fundofixo">
     <?php include "menu_publico.php"; ?>
@@ -28,7 +28,7 @@ $numLinhas = $listaPorTipo->num_rows;
         <a href="javascript:window.history.go(-1)" class="btn btn-danger">
             <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
-        Não há produtos cadastrados tipo <?php echo $rotulo?>!
+        Não há produtos cadastrados do tipo <?php echo $rotulo?>!
     </h2>
 <?php }?>
 <!-- mostrar se a consulta retornou produtos -->

@@ -17,3 +17,13 @@ body{
     background-color: aliceblue;
     
 }
+
+.logo {
+    padding-top: 50%;
+}
+
+.marquee {
+    width: 50%;
+    height: 50%;
+    
+}
