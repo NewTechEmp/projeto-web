@@ -1,6 +1,6 @@
 <?php
 include "conn/connect.php";
-$lista_tipo = $conn->query('select * from tipos order by rotulo');
+$lista_tipo = $conn->query('select * from produtos order by rotulo');
 $rows_tipo = $lista_tipo ->fetch_all();
 ?>
 <!-- abre a barra de navegação -->

@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$database = "tincphpdb01";
+$database = "tudo_acaba_em_pizza_db";
 $user = "root";
 $pass = "";
 $charset = "utf8";
@@ -11,6 +11,6 @@ try {
     mysqli_set_charset($conn, $charset);
 
 } catch (Throwable $th) {
-    die ("Atenção roloy um ERRO, cara!!". $th);
+    die ("Atenção rolou um ERRO, cara!!". $th);
 }
 ?>

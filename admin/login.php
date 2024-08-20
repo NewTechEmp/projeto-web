@@ -2,26 +2,26 @@
  include '../conn/connect.php';
  // inicia a verificação do login
  if($_POST){
-        $login = $_POST['login'];
+        $nome = $_POST['nome'];
         $senha = md5($_POST['senha']);
-        $loginRes = $conn->query("select * from usuarios where login = '$login' and login = '$login' and senha = '$senha' ");
-        $rowLogin = $loginRes->fetch_assoc();
-        $numRow = $loginRes->num_rows;
+        $loginRes = $conn->query("select * from usuarios where nome = '$nome' and senha = '$senha' ");
+        $rownome = $nomeRes->fetch_assoc();
+        $numRow = $nomeRes->num_rows;
         // se a sessão não existir 
         if(!isset($_SESSION)){
-            $sessaoAntiga = session_name('chulettaaa');
+            $sessaoAntiga = session_name('cowabungaaa');
             session_start();
             $session_name_new = session_name();
 
         }
         if($numRow > 0){
-            $_SESSION['login_usuario'] = $login;
-            $_SESSION['nivel_usuario'] = $rowLogin['nivel'];
+            $_SESSION['nome_usuario'] = $nome;
+            $_SESSION['nivel_usuario'] = $rownome['nivel_id'];
             $_SESSION['nome_da_sessao'] = session_name();
-            if($rowLogin['nivel'] == 'sup'){
+            if($rownome['nivel_id'] == 'sup'){
                 echo "<script>window.open('index.php','_self')</script>";
             }else{
-                echo "<script>window.open('../cliente/index.php?cliente=".$login."','_self')</script>";
+                echo "<script>window.open('../cliente/index.php?cliente=".$nome."','_self')</script>";
             }
         }
         else{
