@@ -74,7 +74,7 @@ CREATE TABLE usuarios (
     email VARCHAR(100) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL,
     data_cad TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    ativo BIT(1) NOT NULL,
+    ativo BIT(1) NOT NULL DEFAULT 1,
     nivel_id INT NOT NULL,
     CONSTRAINT pk_usuario PRIMARY KEY(id)
 );
@@ -416,6 +416,7 @@ SELECT
   pr.valor_unit,
   pr.cod_barras,
   pr.nome_imagem,
+  PR.destaque,
   pr.data_cad,
   pr.ativo,
   ca.descricao AS categoria_descricao,
