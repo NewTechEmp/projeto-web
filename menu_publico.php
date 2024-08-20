@@ -24,39 +24,46 @@ $rows_tipo = $lista_tipo ->fetch_all();
         <!-- Fecha agrupamento Mobile -->
         <!-- nav direita -->
         <div class="collapse navbar-collapse" id="menupublico">
-            <div class="marquee">
-                <marquee behavior="scroll" direction="left" bgcolor="#cc7722">  NA COMPRA ACIMA DE 3 PIZZAS LEVA UMA BEBIDA 2L GRATIS E 5% DE DESCONTO, NÃO SE ESQUEÇA NA VIDA TUDO OQUE É BOM ACABA EM PIZZA!!!</marquee>
-            </div>
-            
-            <ul class="nav navbar-nav navbar-right">
+
+
+            <ul class="nav navbar-nav navbar-left">
                 <li class="active">
 
                     <a href="index.php">
                         <span class="glyphicon glyphicon-home"></span>
                     </a>
                 </li>
-                <li><a href="index.php#destaques">DESTAQUES</a></li>
-                <li><a href="index.php#produtos">PRODUTOS</a></li>
+            </ul>
 
-                <!-- Dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                        aria-expanded="false">
-                        TIPOS
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <?php foreach ($rows_tipo as $row) { ?>
-                        <li>
-                            <a href="produtos_por_tipo.php?id_tipo=<?php echo $row[0] . '&rotulo=' .  $row[2]; ?>">
-                                <?php echo $row[2]; ?>
-                            </a>
-                        </li>
-                        <?php } ?>
-                    </ul>
-                </li>
-                <!-- fim do dropdown -->
-                <li><a href="index.php#contato">CONTATO</a></li>
+
+            <div class="d-flex justify-content-center">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.php#destaques">DESTAQUES</a></li>
+                    <li><a href="index.php#produtos">PRODUTOS</a></li>
+
+                    <!-- Dropdown -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false">
+                            TIPOS
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <?php foreach ($rows_tipo as $row) { ?>
+                            <li>
+                                <a href="produtos_por_tipo.php?id_tipo=<?php echo $row[0] . '&rotulo=' .  $row[2]; ?>">
+                                    <?php echo $row[2]; ?>
+                                </a>
+                            </li>
+                            <?php } ?>
+                        </ul>
+                    </li>
+                    <!-- fim do dropdown -->
+                    <li><a href="index.php#contato">CONTATO</a></li>
+                </ul>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
                 <!-- inicio formulário de buscar -->
                 <form action="produtos_busca.php" method="get" name="form-busca" id="form-busca"
                     class="navbar-form navbar-left" role="search">
