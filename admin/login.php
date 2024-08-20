@@ -3,8 +3,8 @@
  // inicia a verificação do login
  if($_POST){
         $nome = $_POST['nome'];
-        $senha = md5($_POST['senha']);
-        $loginRes = $conn->query("select * from usuarios where nome = '$nome' and senha = '$senha' ");
+        $senha = $_POST['senha'];
+        $nomeRes = $conn->query("select * from usuarios where nome = '$nome' and senha = '$senha' ");
         $rownome = $nomeRes->fetch_assoc();
         $numRow = $nomeRes->num_rows;
         // se a sessão não existir 
@@ -18,15 +18,15 @@
             $_SESSION['nome_usuario'] = $nome;
             $_SESSION['nivel_usuario'] = $rownome['nivel_id'];
             $_SESSION['nome_da_sessao'] = session_name();
-            if($rownome['nivel_id'] == 'sup'){
+            if($rownome['nivel_id'] == 1){
                 echo "<script>window.open('index.php','_self')</script>";
             }else{
                 echo "<script>window.open('../cliente/index.php?cliente=".$nome."','_self')</script>";
             }
         }
-        else{
-            echo "<script>window.open('invasor.php','_self')</script>";
-        }
+        // else{
+        //     echo "<script>window.open('invasor.php','_self')</script>";
+        // }
  }
 ?>
 <!DOCTYPE html>
@@ -59,13 +59,13 @@
                             <div class="alert alert-info" role="alert">
                                 <form action="login.php" name="form_login" id="form_login" method="POST"
                                     enctype="multipart/form-data">
-                                    <label for="login_usuario">Login:</label>
+                                    <label for="login_usuario">Nome:</label>
                                     <p class="input-group">
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-user text-info" aria-hidden="true"></span>
                                         </span>
                                         <input type="text" name="login" id="login" class="form-control" autofocus
-                                            required autocomplete="off" placeholder="Digite seu login.">
+                                            required autocomplete="off" placeholder="Digite seu nome.">
                                     </p>
                                     <label for="senha">Senha:</label>
                                     <p class="input-group">
