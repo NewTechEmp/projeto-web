@@ -1,6 +1,6 @@
 <?php
 include "conn/connect.php";
-$lista_tipo = $conn->query('select * from produtos order by rotulo');
+$lista_tipo = $conn->query('select * from vw_produto order by rotulo');
 $rows_tipo = $lista_tipo ->fetch_all();
 ?>
 <!-- abre a barra de navegação -->
@@ -25,7 +25,7 @@ $rows_tipo = $lista_tipo ->fetch_all();
         <!-- nav direita -->
         <div class="collapse navbar-collapse" id="menupublico">
             <div class="marquee">
-                <marquee behavior="scroll" direction="left" bgcolor="#cc7722"> COWABUNGA!!!</marquee>
+                <marquee behavior="scroll" direction="left" bgcolor="#cc7722">  NA COMPRA ACIMA DE 3 PIZZAS LEVA UMA BEBIDA 2L GRATIS E 5% DE DESCONTO, NÃO SE ESQUEÇA NA VIDA TUDO OQUE É BOM ACABA EM PIZZA!!!</marquee>
             </div>
             
             <ul class="nav navbar-nav navbar-right">
