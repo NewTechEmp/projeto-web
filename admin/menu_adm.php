@@ -27,7 +27,7 @@
             
             <li><a href="produtos_lista.php">PRODUTOS</a></li>
             
-            <li><a href="tipos_lista.php">TIPOS</a></li>
+            <li><a href="categorias_lista.php">CATEGORIAS</a></li>
             
             <li><a href="usuarios_lista.php">USUÁRIOS</a></li>
             

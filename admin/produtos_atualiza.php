@@ -15,20 +15,26 @@ if($_POST){ //se o usuario clicou no botão atualizar
     }
     $id = $_POST['id'];
    
-    $id_tipo = $_POST["id_tipo"];
-    $destaque = $_POST['destaque'];
     $descricao = $_POST['descricao'];
-    $resumo = $_POST['resumo'];
-    $valor = $_POST['valor'];
+    $valor = $_POST['valor_unit'];
+    $cod_bar = $_POST['cod_barras'];
+    $nome_img = $_POST['nome_imagem'];
+    $destaque = $_POST['destaque'];
+    $data_cad = $_POST['']
+    $id_categoria = $_POST['categoria_id'];
+    $ativo = $_POST['ativo'];
+    
  
     $update = "update produtos
-                set tipo_id = $id_tipo,
-                destaque = '$destaque',
-                descricao = '$descricao',
-                resumo = '$resumo',
-                valor = $valor,
-                imagem = '$nome_img'
-                where id = $id;";
+    set descricao = '$descricao',
+    valor_unit = '$valor',
+    cod_barras = '$cod_bar',
+    nome_imagem  = '$nome_img',
+    destaque = '$destaque',
+    data_cad = '$data_cad',
+    categoria_id = '$categoria_id',
+    ativo = $ativo
+    where id = $id;";
     $resultado = $conn->query($update);
  
     if($resultado){
@@ -45,7 +51,7 @@ if($_POST){ //se o usuario clicou no botão atualizar
 $lista = $conn->query('select * from produtos where id ='.$id_form);
 $row = $lista->fetch_assoc();
  
-$listaTipo = $conn->query("select * from tipos order by rotulo");
+$listaCat = $conn->query("select * from tipos order by rotulo");
 $rowTipo = $listaTipo->fetch_assoc();
 $numLinhas = $listaTipo->num_rows;
  
