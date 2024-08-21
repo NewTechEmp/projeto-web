@@ -20,7 +20,7 @@ $rows_tipo = $lista_tipo ->fetch_all();
             </a>
         </div> -->
 
-
+    <!--  -->
         <!-- Fecha agrupamento Mobile -->
         <!-- nav direita -->
         <div class="collapse navbar-collapse" id="menupublico">
