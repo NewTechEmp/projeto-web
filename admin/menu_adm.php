@@ -16,27 +16,38 @@
     <!-- Fecha Agrupamento para exibição Mobile -->
     <!-- nav direita -->
     <div class="collapse navbar-collapse" id="defaultNavbar">
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <button type="button" class="btn btn-danger navbar-btn disabled" style="cursor: default;">
-                    Olá, <?php echo($_SESSION['login_usuario']); ?>!
-                </button>
-            </li>
-            <li class="active"><a href="index.php">ADMIN</a></li>
-            <li><a href="produtos_lista.php">PRODUTOS</a></li>
-            <li><a href="tipos_lista.php">TIPOS</a></li>
-            <li><a href="usuarios_lista.php">USUÁRIOS</a></li>
+        <ul class="nav navbar-nav navbar-left">
+            
             <li class="active">
                 <a href="../index.php">
                     <span class="glyphicon glyphicon-home"></span>
                 </a>
-            </li>
+            
+            </li><li class="active"><a href="index.php">ADMIN</a></li>
+            
+            <li><a href="produtos_lista.php">PRODUTOS</a></li>
+            
+            <li><a href="tipos_lista.php">TIPOS</a></li>
+            
+            <li><a href="usuarios_lista.php">USUÁRIOS</a></li>
+            
+        </ul>
+            
+        <ul class="nav navbar-nav navbar-right">
+            
             <li>
+                <button type="button" class="btn btn-danger navbar-btn disabled" style="cursor: default;">
+                    Olá, <?php echo($_SESSION['nome_usuario']); ?>!
+                </button>
+            </li>
+                <li>
                 <a href="logout.php">
                     <span class="glyphicon glyphicon-log-out"></span>
                 </a>
             </li>
         </ul>
+            
+        
     </div><!-- fecha collapse navbar-collapse -->
     <!-- Fecha nav direita -->
  
