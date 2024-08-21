@@ -48,7 +48,7 @@ $rowsUsuarios = $listaUsuarios->num_rows;
                         <span class="hidden-xs"></span>
                     </td>
                     <td>
-                        <?php echo $rowUsuario['nivel'];?>
+                        <?php echo $rowUsuario['nivel_id'];?>
                         <span class="visible-xs"></span>
                         <span class="hidden-xs"></span>
                     </td>
@@ -59,12 +59,12 @@ $rowsUsuarios = $listaUsuarios->num_rows;
                             <span class="hidden-xs">Alterar</span>
                         </a>
                         <?php  
-                        $regra = $conn->query("select nivel from usuarios where id =".$rowUsuario['id']);
+                        $regra = $conn->query("select nivel_id from usuarios where id =".$rowUsuario['id']);
                         $regraRow = $regra->fetch_assoc();
                         ?>
                         <button data-nome="<?php echo $rowUsuario['nome']; ?>"
                             data-id="<?php echo $rowUsuario['id']; ?>" class="delete btn btn-xs  btn-danger
-                        <?php echo $regraRow['nivel'] == 'com'?'':'hidden' ?>">
+                        <?php echo $regraRow['nivel_id'] == 'COM'?'':'hidden' ?>">
                             <span class="glyphicon glyphicon-trash"></span>
                             <span class="hidden-xs">Excluir</span>
                         </button>
@@ -86,7 +86,7 @@ $rowsUsuarios = $listaUsuarios->num_rows;
                     </button>
                 </div>
                 <div class="modal-body">
-                    Deseja mesmo o usuário?
+                    Deseja mesmo excluir o usuário?
                     <h4><span class="nome text-danger"></span></h4>
                 </div>
                 <div class="modal-footer">

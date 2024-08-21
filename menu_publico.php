@@ -24,7 +24,7 @@ $rows_tipo = $lista_tipo ->fetch_all();
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                             aria-expanded="false">
-                            TIPOS
+                            CATEGORIAS
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
