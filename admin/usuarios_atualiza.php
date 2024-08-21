@@ -3,13 +3,13 @@ include 'acesso_com.php';
 include '../conn/connect.php';
 if($_POST){
     $idUsuario = $_POST['id'];
-    $login = $_POST['login'];
-    $senhaUsuario = md5($_POST['senha']);
+    $nome = $_POST['nome'];
+    $senhaUsuario = ($_POST['senha']);
 
     $nivelUsuario = $_POST['nivel'];
     
         $updateUsuario = "update usuarios
-        set login = '$login',
+        set nome = '$nome',
         senha = '$senhaUsuario',
         nivel = '$nivelUsuario'
         where id = $idUsuario;";
@@ -61,14 +61,14 @@ $rowUsuario = $listaUsuario->fetch_assoc();
                             enctype="multipart/form-data" id="form_insere">
                             <!-- O campo id deve permanecer oculto por isso estamos usando o hidden  -->
                             <input type="hidden" name="id" id="id" value="<?php echo $rowUsuario['id'];?>">
-                            <label for="descri">Login:</label>
+                            <label for="descri">Nome:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                 </span>
-                                <input type="text" name="login" id="login" class="form-control"
-                                    placeholder="Digite o nome de login de usuário" maxlength="20"
-                                    value="<?php echo $rowUsuario['login']; ?>">
+                                <input type="text" name="nome" id="nome" class="form-control"
+                                    placeholder="Digite o nome de nome de usuário" maxlength="20"
+                                    value="<?php echo $rowUsuario['nome']; ?>">
                             </div>
                             <label for="descri"> Senha:</label>
                             <div class="input-group">

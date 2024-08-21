@@ -26,7 +26,7 @@ $rowsUsuarios = $listaUsuarios->num_rows;
         <table class="table table-hover table-condensed tb-opacidade bg-warning">
             <thead>
                 <th class="hidden">ID</th>
-                <th>LOGIN</th>
+                <th>NOME</th>
                 <th class="hidden">SENHA</th>
                 <th>NIVEL</th>
                 <th>
@@ -43,7 +43,7 @@ $rowsUsuarios = $listaUsuarios->num_rows;
                         <?php echo $rowUsuario['id']; ?>
                     </td>
                     <td>
-                        <?php echo $rowUsuario['login'];?>
+                        <?php echo $rowUsuario['nome'];?>
                         <span class="visible-xs"></span>
                         <span class="hidden-xs"></span>
                     </td>
@@ -62,7 +62,7 @@ $rowsUsuarios = $listaUsuarios->num_rows;
                         $regra = $conn->query("select nivel from usuarios where id =".$rowUsuario['id']);
                         $regraRow = $regra->fetch_assoc();
                         ?>
-                        <button data-nome="<?php echo $rowUsuario['login']; ?>"
+                        <button data-nome="<?php echo $rowUsuario['nome']; ?>"
                             data-id="<?php echo $rowUsuario['id']; ?>" class="delete btn btn-xs  btn-danger
                         <?php echo $regraRow['nivel'] == 'com'?'':'hidden' ?>">
                             <span class="glyphicon glyphicon-trash"></span>

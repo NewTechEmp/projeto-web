@@ -1,7 +1,7 @@
 <?php
  include 'acesso_com.php';
  include '../conn/connect.php';
- $lista = $conn->query("select * from vw_produtos");
+ $lista = $conn->query("select * from vw_produto");
  $row = $lista->fetch_assoc(); // cria uma array e associa os dados do banco
  $rows = $lista->num_rows; 
 

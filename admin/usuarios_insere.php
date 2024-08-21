@@ -3,12 +3,12 @@ include 'acesso_com.php';
  include '../conn/connect.php';
  if($_POST)
  {
-    $login = $_POST['login'];
+    $nome = $_POST['nome'];
     $senha = md5($_POST['senha']);
-    $nivel = $_POST['nivel'];
-    $insereUsuario = "insert usuarios (login,senha,nivel)
+    $nivelId = $_POST['nivel_id'];
+    $insereUsuario = "insert usuarios (nome,senha,nivel_id)
     values 
-    ('$login','$senha','$nivel')";
+    ('$nome','$senha','$nivelId')";
 
     $resultado = $conn->query($insereUsuario);
  }
@@ -44,18 +44,18 @@ include 'acesso_com.php';
                         <form action="usuarios_insere.php" method="post">
 
 
-                            <label for="text">Login : </label>
-                            <input type="text" id="login" name="login" required class="form-control"><br><br>
+                            <label for="text">Nome : </label>
+                            <input type="text" id="nome" name="nome" required class="form-control"><br><br>
 
                             <label for="senha">Senha : </label>
                             <input type="password" id="senha" name="senha" required class="form-control"><br><br>
 
                             <p>Nivel:</p>
 
-                            <input type="radio" id="nivel" name="nivel" value="sup" required>
+                            <input type="radio" id="nivelId" name="nivelId" value="ADM" required>
                             <label for="feminino">Superior</label>
                             <br>
-                            <input type="radio" id="nivel" name="nivel" value="com" required checked>
+                            <input type="radio" id="nivelId" name="nivelId" value="COM" required checked>
                             <label for="masculino">Comum</label>
                             <br>
                             <br>

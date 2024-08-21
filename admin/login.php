@@ -24,9 +24,9 @@
                 echo "<script>window.open('../cliente/index.php?cliente=".$nome."','_self')</script>";
             }
         }
-        // else{
-        //     echo "<script>window.open('invasor.php','_self')</script>";
-        // }
+         else{
+             echo "<script>window.open('invasor.php','_self')</script>";
+         }
  }
 ?>
 <!DOCTYPE html>
@@ -41,7 +41,7 @@
     <!-- Link para CSS específico -->
     <link rel="stylesheet" href="../css/estilo.css" type="text/css">
 
-    <title>Chuleta Quente | Login</title>
+    <title> Cowabunga | Login</title>
 </head>
 
 <body>
@@ -59,12 +59,12 @@
                             <div class="alert alert-info" role="alert">
                                 <form action="login.php" name="form_login" id="form_login" method="POST"
                                     enctype="multipart/form-data">
-                                    <label for="login_usuario">Nome:</label>
+                                    <label for="nome_usuario">Nome:</label>
                                     <p class="input-group">
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-user text-info" aria-hidden="true"></span>
                                         </span>
-                                        <input type="text" name="login" id="login" class="form-control" autofocus
+                                        <input type="text" name="nome" id="nome" class="form-control" autofocus
                                             required autocomplete="off" placeholder="Digite seu nome.">
                                     </p>
                                     <label for="senha">Senha:</label>
