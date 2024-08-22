@@ -416,7 +416,7 @@ SELECT
   pr.valor_unit,
   pr.cod_barras,
   pr.nome_imagem,
-  PR.destaque,
+  pr.destaque,
   pr.data_cad,
   pr.ativo,
   ca.descricao AS categoria_descricao,
@@ -1267,22 +1267,6 @@ END$$
 DELIMITER ;
 
 -- -----------------------------------------------------
--- procedure sp_cliente_update
--- -----------------------------------------------------
-
-DELIMITER $$
-USE `tudo_acaba_em_pizza_db`$$
-CREATE PROCEDURE `sp_cliente_update` (
-	spid int,
-    spcpf char(11)
-)
-BEGIN
-	update clientes set cpf = spcpf where id = spid;
-END$$
-
-DELIMITER ;
-
--- -----------------------------------------------------
 -- procedure sp_cliente_insert
 -- -----------------------------------------------------
 
@@ -1294,7 +1278,7 @@ CREATE PROCEDURE `sp_cliente_insert` (
     spcpf char(11)
 )
 BEGIN
-	insert into clientes values (0, spusuario_id, spdata_nasc, spcpf);
+		insert into clientes values (0, spusuario_id, spdata_nasc, spcpf);
 END$$
 
 DELIMITER ;
@@ -1464,3 +1448,11 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+INSERT INTO niveis (sigla, descricao, ativo)
+VALUES ('ADM', 'Administração', 1);
+INSERT INTO niveis (sigla, descricao, ativo)
+VALUES ('COM', 'Comum', 1);
+
+INSERT INTO usuarios (nome, email, senha, ativo, nivel_id) 
+VALUES ('admin', 'admin@gmail.com', '1234',1 ,1);
