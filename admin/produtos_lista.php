@@ -111,7 +111,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    Deseja mesmo excluir o item?
+                    Deseja mesmo excluir o produto?
                     <h4><span class="nome text-danger"></span></h4>
                 </div>
                 <div class="modal-footer">

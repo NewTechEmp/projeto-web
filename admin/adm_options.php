@@ -39,7 +39,7 @@
 </div><!-- fecha col -->
 <!-- fecha ADM PRODUTOS -->
  
-<!-- ADM TIPOS -->
+<!-- ADM CATEGORIAS -->
 <div class="col-sm-6 col-md-4">
     <div class="thumbnail alert-warning">
         <img src="../imagens/icone_tipos.png" alt="">
@@ -48,21 +48,21 @@
             <div class="btn-group btn-group-justified" role="group">
                 <div class="btn-group">
                     <button class="btn btn-default disabled" role="alert" style="cursor: default;">
-                        TIPOS
+                        CATEGORIAS
                     </button>
                 </div><!-- fecha btn-group -->
             </div><!-- fecha btn-group-justified -->
  
             <div class="btn-group btn-group-justified" role="group">
                 <div class="btn-group">
-                    <a href="tipos_lista.php">
+                    <a href="categorias_lista.php">
                         <button class="btn btn-warning">
                             LISTAR
                         </button>
                     </a>
                 </div><!-- fecha btn-group -->
                 <div class="btn-group">
-                    <a href="tipos_insere.php">
+                    <a href="categorias_insere.php">
                         <button class="btn btn-warning">
                             INSERIR
                         </button>
@@ -73,7 +73,7 @@
         </div><!-- fecha alert-warning -->
     </div><!-- fecha thumbnail -->
 </div><!-- fecha col -->
-<!-- fecha ADM TIPOS -->
+<!-- fecha ADM categorias -->
  
 <!-- ADM USUÁRIOS -->
 <div class="col-sm-6 col-md-4">
