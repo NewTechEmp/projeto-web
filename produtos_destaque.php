@@ -1,7 +1,7 @@
 <?php
 include 'conn/connect.php';
 $lista = $conn->query("select * from vw_produto where destaque = 1");
-$vw_produto = $lista->fetch_assoc();
+$row_produtos = $lista->fetch_assoc();
 $num_linhas = $lista->num_rows;
  
 ?>
@@ -20,22 +20,22 @@ $num_linhas = $lista->num_rows;
         <?php do{ ?>
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <a href="produto_detalhes.php?id=<?php echo $row_produtos ['id']?>">
-                        <img src="images/<?php echo $row_produtos['imagem'] ?>" alt="" class="img-responsive img-rounded">
+                    <a href="produto_detalhes.php?id=<?php echo $row_produtos['id'];?>">
+                        <img src="images/<?php echo $row_produtos['imagem']; ?>" alt="" class="img-responsive img-rounded">
                     </a>
                     <div class="caption text-right bg-secondary">
                         <h3 class="text-success">
-                            <strong><?php echo $row_produtos['descricao'] ?></strong>
+                            <strong><?php echo $row_produtos['rotulo']; ?></strong>
                         </h3>
                         <p class="text-danger">
-                            <strong><?php echo $row_produtos['rotulo'] ?></strong>
+                            <strong><?php echo $row_produtos['categoria_descricao']; ?></strong>
                         </p>
                         <p class="text-left">
-                            <?php echo mb_strimwidth($row_produtos['resumo'],0,42,'...'); ?>
+                            <?php echo mb_strimwidth($row_produtos['descricao'],0,42,'...'); ?>
                         </p>
                         <p>
                            <button class="btn btn-default disabled" role="button" style=cursor: default;>
-                                <?php echo "R$ " .number_format($row_produtos['valor'],2,',','.') ?>
+                                <?php echo "R$ " .number_format($row_produtos['valor_unit'],2,',','.') ?>
                             </button>
                             <a href="produto_detalhes.php?id=<?php echo $row_produtos['id']; ?>">
                                 <span class="hidden-xs">Saiba mais...</span>
