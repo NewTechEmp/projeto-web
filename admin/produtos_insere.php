@@ -12,13 +12,13 @@ if ($_POST){
 
 
     }
-    $id = $_POST['id_tipo'];
+    $id = $_POST['id'];
     $destaque = $_POST['destaque'];
     $descricao = $_POST['descricao'];
-    $resumo = $_POST['resumo'];
+    $rotulo = $_POST['rotulo'];
     $valor = $_POST['valor'];
     $imagem = $rand.$nome_img;
-    $insereProduto = "insert produtos (tipo_id,descricao,resumo,valor,imagem,destaque)
+    $insereProduto = "insert produtos (id,rotulo,descricao,valor,imagem,destaque)
     values 
     ($id,'$descricao','$resumo',$valor, '$imagem','$destaque')";
 
@@ -28,8 +28,8 @@ if ($_POST){
 }
 
 }
-// selecionar a lista de tipo para preencher <select>
-$ListaTipo = $conn->query("select * from tipos order by rotulo"); 
+// selecionar a lista de categorias para preencher <select>
+$ListaTipo = $conn->query("select * from categorias order by rotulo"); 
 $rowTipos = $ListaTipo->fetch_assoc();
 $numLinhas = $ListaTipo->num_rows;
 ?>

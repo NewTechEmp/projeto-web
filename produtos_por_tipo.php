@@ -2,7 +2,11 @@
 include 'conn/connect.php';
 $Categoria = $_GET['id'];
 $rotulo = $_GET['rotulo'];
+<<<<<<< HEAD
 $listaPorTipo = $conn->query('SELECT * FROM vw_produto where categoria_descricao ='. $Categoria);
+=======
+$listaPorTipo = $conn->query('select * from vw_produto where tipo_id ='. $idTipo);
+>>>>>>> 6d857acd6ae8b70d685c6edea6376445ff95f423
 $rowPorTipo = $listaPorTipo->fetch_assoc();
 $numLinhas = $listaPorTipo->num_rows; 
 ?>
@@ -15,7 +19,7 @@ $numLinhas = $listaPorTipo->num_rows;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/estilo.css">
-    <title>COWABUNGA | TIPOS</title>
+    <title>COWABUNGA | CATEGORIAS</title>
 </head>
 <body class="fundofixo">
     <?php include "menu_publico.php"; ?>
