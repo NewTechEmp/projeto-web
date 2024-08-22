@@ -14,19 +14,21 @@ if($_POST){ //se o usuario clicou no botão atualizar
         $nome_img = $_POST['imagem_atual'];
     }
     $id = $_POST['id'];
-   
+    $rotulo = $_POST['rotulo']
     $descricao = $_POST['descricao'];
-    $valor = $_POST['valor_unit'];
+    $valor = $_POST['valor'];
     $cod_bar = $_POST['cod_barras'];
     $nome_img = $_POST['nome_imagem'];
     $destaque = $_POST['destaque'];
-    $data_cad = $_POST['']
+    $data_cad = $_POST['data_cad']
     $id_categoria = $_POST['categoria_id'];
     $ativo = $_POST['ativo'];
     
  
     $update = "update produtos
-    set descricao = '$descricao',
+    set  rotulo = '$rotulo',
+
+    descricao = '$descricao',
     valor_unit = '$valor',
     cod_barras = '$cod_bar',
     nome_imagem  = '$nome_img',

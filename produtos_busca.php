@@ -1,7 +1,7 @@
 <?php
-include "conn/connect.php"; // conecta com o banco
+include "conn/connect.php";
 $busca = $_GET['buscar'];
-$listaBusca = $conn->query("select * from vw_produtos where descricao like '%$busca%' or resumo like '%$busca%' order by descricao asc "); // asc é do A ao Z
+$listaBusca = $conn->query("select * from vw_produto where rotulo like '%$busca%' or descricao like '%$busca%' order by rotulo asc "); // asc é do A ao Z
 $rowBusca = $listaBusca->fetch_assoc();
 $numLinhas = $listaBusca -> num_rows;
 
@@ -39,22 +39,22 @@ $numLinhas = $listaBusca -> num_rows;
                 <?php do{ ?>
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href="produto_detalhes.php?id=<?php echo $rowBusca['id']?>">
+                            <a href="produto_detalhes.php?id=<?php echo $rowBusca['id_do_produto']?>">
                                 <img src="images/<?php echo $rowBusca['imagem']?>" class="img-responsive img-rounded">
                             </a>
                             <div class="caption text-right">
                                 <h3 class="text-danger">
-                                    <strong><?php echo $rowBusca['descricao']?></strong>
+                                    <strong><?php echo $rowBusca['rotulo']?></strong>
                                 </h3>
                                 <p class="text-warning">
-                                    <strong><?php echo $rowBusca['rotulo']?></strong>
+                                    <strong><?php echo $rowBusca['categoria_descricao']?></strong>
                                 </p>
                                 <p class="text-left">
-                                   <?php echo mb_strimwidth($rowBusca['resumo'],0,42,'...'); ?>
+                                   <?php echo mb_strimwidth($rowBusca['descricao'],0,42,'...'); ?>
                                 </p>
                                 <p>
                                     <button class="btn btn-default disabled" role="button" style="cursor:default;">
-                                        <?php echo "R$ ".number_format($rowBusca['valor'], 2,',','.'); ?>
+                                        <?php echo "R$ ".number_format($rowBusca['valor_unit'], 2,',','.'); ?>
                                     </button>
                                     <a href="produto_detalhes.php?id=<?php echo $rowPorTipo['id'];?>">
                                         <span class="hidden-xs">Saiba mais...</span>

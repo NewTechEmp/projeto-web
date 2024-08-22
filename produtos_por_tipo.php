@@ -1,12 +1,8 @@
 <?php
 include 'conn/connect.php';
 $Categoria = $_GET['id'];
-$rotulo = $_GET['rotulo'];
-<<<<<<< HEAD
-$listaPorTipo = $conn->query('SELECT * FROM vw_produto where categoria_descricao ='. $Categoria);
-=======
-$listaPorTipo = $conn->query('select * from vw_produto where tipo_id ='. $idTipo);
->>>>>>> 6d857acd6ae8b70d685c6edea6376445ff95f423
+$descricaoCategoria = $_GET['descricao'];
+$listaPorTipo = $conn->query("SELECT * FROM vw_produto where categoria_id =" . $Categoria);
 $rowPorTipo = $listaPorTipo->fetch_assoc();
 $numLinhas = $listaPorTipo->num_rows; 
 ?>
@@ -32,7 +28,7 @@ $numLinhas = $listaPorTipo->num_rows;
         <a href="javascript:window.history.go(-1)" class="btn btn-danger">
             <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
-        Não há produtos da Categoria <?php echo $rotulo?>!
+        Não há produtos da Categoria <?php echo $descricaoCategoria?>!
     </h2>
 <?php }?>
 <!-- mostrar se a consulta retornou produtos -->
@@ -41,7 +37,7 @@ $numLinhas = $listaPorTipo->num_rows;
         <a href="javascript:window.history.go(-1)" class="btn btn-danger">
             <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
-        <strong><?php echo $rotulo; ?></strong> 
+        <strong><?php echo $descricaoCategoria; ?></strong> 
     </h2>
     <div class="row">
         <?php do{ ?>
