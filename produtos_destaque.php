@@ -20,8 +20,8 @@ $num_linhas = $lista->num_rows;
         <?php do{ ?>
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
-                    <a href="produto_detalhes.php?id=<?php echo $row_produtos['id'];?>">
-                        <img src="images/<?php echo $row_produtos['imagem']; ?>" alt="" class="img-responsive img-rounded">
+                    <a href="produto_detalhes.php?id=<?php echo $row_produtos['id_do_produto'];?>">
+                        <img src="images/<?php echo $row_produtos['nome_imagem']; ?>" alt="" class="img-responsive img-rounded">
                     </a>
                     <div class="caption text-right bg-secondary">
                         <h3 class="text-success">
@@ -37,7 +37,7 @@ $num_linhas = $lista->num_rows;
                            <button class="btn btn-default disabled" role="button" style=cursor: default;>
                                 <?php echo "R$ " .number_format($row_produtos['valor_unit'],2,',','.') ?>
                             </button>
-                            <a href="produto_detalhes.php?id=<?php echo $row_produtos['id']; ?>">
+                            <a href="produto_detalhes.php?id=<?php echo $row_produtos['id_do_produto']; ?>">
                                 <span class="hidden-xs">Saiba mais...</span>
                                 <span class="hidden-xs glyphicon glyphicon-eye-open" aria-hidden="true"></span>                        
                             </a>

@@ -85,6 +85,15 @@
                 </p>
                 <p>
                     <span class="input-group">
+                        <span class="input-group-addon" id="basic-addon2">
+                            <span class="glyphicon glyphicon-tags"></span>
+                        </span>
+                        <input type="text" name="assunto_contato" placeholder="digite o Assunto do email"
+                            aria-describedby="basic-addon2" class="form-control" required>
+                    </span>
+                </p>
+                <p>
+                    <span class="input-group">
                         <span class="input-group-addon" id="basic-addon3">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </span>
@@ -94,7 +103,7 @@
                     </span>
                 </p>
                 <p>
-                    <button class="btn btn-success btn-block" aria-label="enviar" role="button">
+                    <button class="btn btn-success btn-block " aria-label="enviar" role="button" onclick="return confirmarEnvio();" >
                         Enviar
                         <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
                     </button>
@@ -113,3 +122,13 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+function confirmarEnvio() {
+    // Exibe a caixa de confirmação
+    var resposta = confirm("Você está enviando uma mensagem ao nosso suporte, OK?");
+    
+    // Se o usuário clicar em "OK", retorna true e a navegação prossegue
+    // Se o usuário clicar em "Cancelar", retorna false e a navegação é interrompida
+    return resposta;
+}
+</script>

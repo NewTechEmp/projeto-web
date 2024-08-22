@@ -1,10 +1,8 @@
 <?php
 include "conn/connect.php";
-$lista_tipo = $conn->query('select * from vw_produto order by rotulo');
+$lista_tipo = $conn->query('select * from categorias order by descricao');
 $rows_tipo = $lista_tipo ->fetch_all();
 
-$lista_categoria = $conn->query('select * from categorias order by descricao');
-$rows_categoria = $lista_categoria->fetch_all();
 ?>
 <!-- abre a barra de navegação -->
 <nav class="navbar navbar-expanded-md navbar-fixed-top navbar-light navbar-inverse">
@@ -27,13 +25,13 @@ $rows_categoria = $lista_categoria->fetch_all();
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                             aria-expanded="false">
-                            CATEGORIAS
+                            CATEGORIAS DE PRODUTOS
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <?php foreach ($rows_categoria as $row) { ?>
+                            <?php foreach ($rows_tipo as $row) { ?>
                             <li>
-                                <a href="produtos_por_tipo.php?id=<?php echo $row[10] . '&rotulo=' .  $row[2]; ?>">
+                                <a href="produtos_por_tipo.php?id=<?php echo $row[0] . '&descricao=' .  $row[2]; ?>">
                                     <?php echo $row[2]; ?>
                                 </a>
                             </li>
