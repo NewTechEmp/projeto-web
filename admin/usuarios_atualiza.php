@@ -11,7 +11,7 @@ if($_POST){
         $updateUsuario = "update usuarios
         set nome = '$nome',
         senha = '$senhaUsuario',
-        nivel = '$nivelUsuario'
+        nivel_id = '$nivelUsuario'
         where id = $idUsuario;";
         $resultado = $conn->query($updateUsuario);
         
@@ -79,7 +79,7 @@ $rowUsuario = $listaUsuario->fetch_assoc();
                                     placeholder="Digite a senha do usuário" maxlength="15"
                                     value="<?php echo $rowUsuario['senha']; ?>">
                             </div>
-                            <label for="descri">Nova Senha:</label>
+                            <!-- <label for="descri">Nova Senha:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
@@ -87,16 +87,16 @@ $rowUsuario = $listaUsuario->fetch_assoc();
                                 <input type="password" name="senha" id="senha" class="form-control"
                                     placeholder="Digite a nova senha do usuário" maxlength="15"
                                     value="<?php ?>">
-                            </div>
+                            </div> -->
                             <label for="destaque">Nivel:</label>
                             <div class="input-group">
-                                <label for="comum" class="radio-inline">
-                                    <input type="radio" name="nivel" id="nivel" value="com"
-                                        <?php echo $rowUsuario['nivel']=="com"?'checked':null; ?>>Comum
-                                </label>
                                 <label for="superior" class="radio-inline">
-                                    <input type="radio" name="nivel" id="nivel" value="sup"
-                                        <?php echo $rowUsuario['nivel']=="sup"?'checked':null; ?>>Superior
+                                    <input type="radio" name="nivel" id="nivel" value="1"
+                                        <?php echo $rowUsuario['nivel_id']=="1"?'checked':null; ?>>Superior
+                                </label>
+                                <label for="comum" class="radio-inline">
+                                    <input type="radio" name="nivel" id="nivel" value="2"
+                                        <?php echo $rowUsuario['nivel_id']=="2"?'checked':null; ?>>Comum
                                 </label>
                             </div>
                             <br>

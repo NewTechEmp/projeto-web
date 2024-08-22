@@ -29,6 +29,7 @@ $rowsUsuarios = $listaUsuarios->num_rows;
                 <th>NOME</th>
                 <th class="hidden">SENHA</th>
                 <th>NIVEL</th>
+                <th>ATIVO</th>
                 <th>
                     <a href="usuarios_insere.php" target="_self" class="btn btn-primary btn-xs" role="button">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -52,19 +53,28 @@ $rowsUsuarios = $listaUsuarios->num_rows;
                         <span class="visible-xs"></span>
                         <span class="hidden-xs"></span>
                     </td>
+
                     <td>
+                        <?php echo $rowUsuario['ativo'];?>
+                        <span class="visible-xs"></span>
+                        <span class="hidden-xs"></span>
+                    </td>
+
+                    <td>
+                        <!-- ALTERAR -->
                         <a href="usuarios_atualiza.php?id=<?php echo $rowUsuario['id'] ?>" role="button"
                             class="btn btn-warning  btn-xs">
                             <span class="glyphicon glyphicon-refresh"></span>
                             <span class="hidden-xs">Alterar</span>
                         </a>
+                        <!-- EXCLUIR -->
                         <?php  
                         $regra = $conn->query("select nivel_id from usuarios where id =".$rowUsuario['id']);
                         $regraRow = $regra->fetch_assoc();
                         ?>
                         <button data-nome="<?php echo $rowUsuario['nome']; ?>"
                             data-id="<?php echo $rowUsuario['id']; ?>" class="delete btn btn-xs  btn-danger
-                        <?php echo $regraRow['nivel_id'] == 'COM'?'':'hidden' ?>">
+                        <?php echo $regraRow['nivel_id'] == 'COM' ?>">
                             <span class="glyphicon glyphicon-trash"></span>
                             <span class="hidden-xs">Excluir</span>
                         </button>
@@ -109,7 +119,7 @@ $('.delete').on('click', function() {
     var idUsuario = $(this).data('id'); // busca o id (data-id)
     //console.log(id + ' - ' + nome); //exibe no console
     $('span.nome').text(nomeUsuario); // insere o nome do item na confirmação
-    $('a.delete-yes').attr('href', 'produtos_excluir.php?id=' +
+    $('a.delete-yes').attr('href', 'usuario_delete.php?id=' +
     idUsuario); //chama o arquivo php para excluir o produto
     $('#modalEdit').modal('show'); // chamar o modal
 });
