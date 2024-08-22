@@ -1,8 +1,12 @@
 <?php
 include 'conn/connect.php';
-$idTipo = $_GET['id_tipo'];
+$Categoria = $_GET['id'];
 $rotulo = $_GET['rotulo'];
+<<<<<<< HEAD
+$listaPorTipo = $conn->query('SELECT * FROM vw_produto where categoria_descricao ='. $Categoria);
+=======
 $listaPorTipo = $conn->query('select * from vw_produto where tipo_id ='. $idTipo);
+>>>>>>> 6d857acd6ae8b70d685c6edea6376445ff95f423
 $rowPorTipo = $listaPorTipo->fetch_assoc();
 $numLinhas = $listaPorTipo->num_rows; 
 ?>
@@ -28,7 +32,7 @@ $numLinhas = $listaPorTipo->num_rows;
         <a href="javascript:window.history.go(-1)" class="btn btn-danger">
             <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
-        Não há produtos cadastrados do tipo <?php echo $rotulo?>!
+        Não há produtos da Categoria <?php echo $rotulo?>!
     </h2>
 <?php }?>
 <!-- mostrar se a consulta retornou produtos -->
@@ -43,24 +47,21 @@ $numLinhas = $listaPorTipo->num_rows;
         <?php do{ ?>
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail ">
-                <a href="produto_detalhes.php?id=<?php echo $rowPorTipo['id']?>">
-                    <img src="images/<?php echo $rowPorTipo['imagem']?>" alt="" class="img-resposive img-rounded">
+                <a href="produto_detalhes.php?id=<?php echo $rowPorTipo['id_do_produto']?>">
+                    <img src="images/<?php echo $rowPorTipo['nome_imagem']?>" alt="" class="img-resposive img-rounded">
                 </a>
                 <div class="caption text-right bg-success">
                     <h3 class="text-danger">
-                        <strong><?php echo $rowPorTipo['descricao']?></strong>
-                    </h3>
-                    <p class="text-warning">
                         <strong><?php echo $rowPorTipo['rotulo']?></strong>
-                    </p>
+                    </h3>
                     <p class="text-left">
-                        <?php echo mb_strimwidth($rowPorTipo['resumo'],0,42,'...');?>
+                        <?php echo mb_strimwidth($rowPorTipo['descricao'],0,42,'...');?>
                     </p>
                     <p>
                         <button class="btn btn-default disabled" role="button" style="cursor: default;">
-                            <?php echo "R$".number_format($rowPorTipo['valor'],2,',','.') ?>
+                            <?php echo "R$".number_format($rowPorTipo['valor_unit'],2,',','.') ?>
                         </button>
-                        <a href="produto_detalhes.php?id=<?php echo $rowPorTipo['id']; ?>">
+                        <a href="produto_detalhes.php?id=<?php echo $rowPorTipo['id_do_produto']; ?>">
                         <span class="hidden-xs">Saiba mais..</span>
                         <span class="hidden-xs glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                     </a>
