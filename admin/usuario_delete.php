@@ -1,6 +1,8 @@
 <?php 
 include "../conn/connect.php";
-$conn->query("delete from usuarios where id = ".$_GET['id']);
-header("location: usuarios_lista.php");
+$id = $_GET['id'];
+$ativo = 0;
+$conn->query("call sp_usuario_delete($id,$ativo)");
+header("location:usuarios_lista.php");
 
 ?>
