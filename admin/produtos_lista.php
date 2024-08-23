@@ -26,9 +26,9 @@
         <table class="table table-hover table-condensed tb-opacidade bg-warning">
             <thead>
                 <th class="hidden">ID</th>
-                <th>TIPO</th>
+                <th>CATEGORIA</th>
+                <th>RÓTULO</th>
                 <th>DESCRIÇÃO</th>
-                <th>RESUMO</th>
                 <th>VALOR</th>
                 <th>IMAGEM</th>
                 <th>

@@ -1,6 +1,7 @@
 <?php
 include 'acesso_com.php';
 include '../conn/connect.php';
+include '';
 if($_POST){ //se o usuario clicou no botão atualizar
     if($_FILES['imagemfile']['name']){ // se o usuario escolher um imagem
         unlink("../images/".$_POST['imagem_atual']); //apaga a imagem atual
@@ -14,13 +15,13 @@ if($_POST){ //se o usuario clicou no botão atualizar
         $nome_img = $_POST['imagem_atual'];
     }
     $id = $_POST['id'];
-    $rotulo = $_POST['rotulo']
+    $rotulo = $_POST['rotulo'];
     $descricao = $_POST['descricao'];
     $valor = $_POST['valor'];
     $cod_bar = $_POST['cod_barras'];
     $nome_img = $_POST['nome_imagem'];
     $destaque = $_POST['destaque'];
-    $data_cad = $_POST['data_cad']
+    $data_cad = $_POST['data_cad'];
     $id_categoria = $_POST['categoria_id'];
     $ativo = $_POST['ativo'];
     
@@ -34,7 +35,7 @@ if($_POST){ //se o usuario clicou no botão atualizar
     nome_imagem  = '$nome_img',
     destaque = '$destaque',
     data_cad = '$data_cad',
-    categoria_id = '$categoria_id',
+    categoria_id = '$id_categoria',
     ativo = $ativo
     where id = $id;";
     $resultado = $conn->query($update);
@@ -53,9 +54,9 @@ if($_POST){ //se o usuario clicou no botão atualizar
 $lista = $conn->query('select * from produtos where id ='.$id_form);
 $row = $lista->fetch_assoc();
  
-$listaCat = $conn->query("select * from tipos order by rotulo");
-$rowTipo = $listaTipo->fetch_assoc();
-$numLinhas = $listaTipo->num_rows;
+$listaCat = $conn->query("select * from categorias order by descricao");
+$rowTipo = $lista->fetch_assoc();
+$numLinhas = $lista->num_rows;
  
 ?>
 <!DOCTYPE html>
@@ -66,7 +67,7 @@ $numLinhas = $listaTipo->num_rows;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/estilo.css">
-    <title>Produto - Insere</title>
+    <title>Produto - Atualiza</title>
 </head>
 
 <body>
@@ -81,7 +82,7 @@ $numLinhas = $listaTipo->num_rows;
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </button>
                     </a>
-                    Inserindo Produtos
+                    Atualizando Produtos
                 </h2>
                 <div class="thumbnail">
                     <div class="alert alert-danger" role="alert">
@@ -90,7 +91,7 @@ $numLinhas = $listaTipo->num_rows;
                             <!-- O campo id deve permanecer oculto por isso estamos usando o hidden  -->
                             <input type="hidden" name="id" id="id" value="<?php echo $row['id'];?>">
 
-                            <label for="id_tipo">Tipo:</label>
+                            <label for="id_tipo">Categoria:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
@@ -100,14 +101,14 @@ $numLinhas = $listaTipo->num_rows;
                                     <option value="<?php echo $rowTipo['id'] ?>" <?php
  
                                             //$strcmp = a string comper comparação recebe duas string e devolve inteiro
-                                                if (!(strcmp($rowTipo['id'],$row['tipo_id']))){
+                                                if (!(strcmp($rowTipo['id'],$row['categoria_id']))){
                                                      echo "selected=\"selected\"";  
                                                    
                                                 }
                                             ?>>
-                                        <?php echo $rowTipo['rotulo'] ?>
+                                        <?php echo $rowTipo['descricao'] ?>
                                     </option>
-                                    <?php }while($rowTipo = $listaTipo->fetch_assoc());?>
+                                    <?php }while($rowTipo = $listaCat->fetch_assoc());?>
                                 </select>
                             </div>
                             <label for="destaque">Destaque:</label>
@@ -121,23 +122,23 @@ $numLinhas = $listaTipo->num_rows;
                                         <?php echo $row['destaque']=="Não"?'checked':null; ?>>Não
                                 </label>
                             </div>
-                            <label for="descri">Descrição:</label>
+                            <label for="descri">Rótulo:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
                                 </span>
                                 <input type="text" name="descricao" id="descricao" class="form-control"
                                     placeholder="Digite a descrição do Produto" maxlength="100"
-                                    value="<?php echo $row['descricao']; ?>">
+                                    value="<?php echo $row['rotulo']; ?>">
                             </div>
 
-                            <label for="resumo">Resumo:</label>
+                            <label for="resumo">Descrição:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
                                 </span>
                                 <textarea name="resumo" id="resumo" cols="30" rows="8" class="form-control"
-                                    placeholder="Digite os detalhes do Produto"> <?php echo $row['resumo'];?></textarea>
+                                    placeholder="Digite os detalhes do Produto"> <?php echo $row['descricao'];?></textarea>
 
                             </div>
                             <label for="valor">Valor:</label>
@@ -146,13 +147,13 @@ $numLinhas = $listaTipo->num_rows;
                                     <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
                                 </span>
                                 <input type="number" name="valor" id="valor" class="form-control" required min="0"
-                                    step="0.01" value="<?php echo $row['valor'];?>">
+                                    step="0.01" value="<?php echo $row['valor_unit'];?>">
                             </div>
 
                             <label for="imagem_atual">Imagem Atual:</label>
-                            <img src="../images/<?php echo $row['imagem']; ?>" alt="" srcset="">
+                            <img src="../images/<?php echo $row['nome_imagem']; ?>" alt="" srcset="">
                             <input type="hidden" name="imagem_atual" id="imagem_atual"
-                                value="<?php echo $row['imagem']; ?>">
+                                value="<?php echo $row['nome_imagem']; ?>">
 
                             <label for="imagem">Imagem Nova:</label>
                             <div class="input-group">
