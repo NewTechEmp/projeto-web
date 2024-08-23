@@ -48,12 +48,12 @@
                         <?php echo $row['id']; ?>
                     </td>
                     <td>
-                        <?php echo $row['rotulo'];?>
+                        <?php echo $row['categoria_id'];?>
                         <span class="visible-xs"></span>
                         <span class="hidden-xs"></span>
                     </td>
                     <td>
-                        <?php if ($row['destaque'] == 'Sim'){
+                        <?php if ($row['rotulo'] == 1){
                             echo '<span class="glyphicon glyphicon-star text-warning aria-hidden = "true"></span>';
                         }else{
                             echo '<span class="glyphicon glyphicon-ok text-success aria-hidden = "true"></span>';
@@ -63,30 +63,30 @@
                         ?>
                     </td>
                     <td>
-                        <?php echo $row['resumo']; ?>
+                        <?php echo $row['descricao']; ?>
                     </td>
                     <td>
-                        <?php echo 'R$' .number_format($row['valor'],2,',','.');?>
+                        <?php echo 'R$' .number_format($row['valor_unit'],2,',','.');?>
                     </td>
                     <td>
-                        <img src="../images/<?php echo $row['imagem'] ?>" width="100px">
+                        <img src="../images/<?php echo $row['nome_imagem'] ?>" width="100px">
                     </td>
                     <td>
-                        <a href="produtos_atualiza.php?id=<?php echo $row['id'] ?>" role="button"
+                        <a href="produtos_atualiza.php?id=<?php echo $row['id_do_produto'] ?>" role="button"
                             class="btn btn-warning btn-block btn-xs">
                             <span class="glyphicon glyphicon-refresh"></span>
                             <span class="hidden-xs">Alterar</span>
                         </a>
                          <!--Não mostrar o botão de excluir se o produto estiver em destaque  -->
                         <?php  
-                        $regra = $conn->query("select destaque from vw_produtos where id =".$row['id']);
+                        $regra = $conn->query("select destaque from vw_produto where id_do_produto =".$row['id_do_produto']);
                         $regraRow = $regra->fetch_assoc();
 
 
                         ?>
 
-                        <button data-nome="<?php echo $row['descricao']; ?>"
-                        data-id="<?php echo $row['id']; ?>" 
+                        <button data-nome="<?php echo $row['rotulo']; ?>"
+                        data-id="<?php echo $row['id_do_produto']; ?>" 
                         class="delete btn btn-xs btn-block btn-danger
                         <?php echo $regraRow['destaque'] == 'Não'?'':'hidden' ?>"
                         >

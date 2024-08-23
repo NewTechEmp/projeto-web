@@ -1,4 +1,3 @@
--- -------------------------------------------------
 -- criando banco
 DROP DATABASE IF EXISTS Tudo_Acaba_em_Pizza_DB;
 CREATE DATABASE IF NOT EXISTS Tudo_Acaba_em_Pizza_DB;
@@ -406,7 +405,7 @@ FROM
   JOIN enderecos en ON cl.id = en.cliente_id
   JOIN telefones tl ON cl.id = tl.cliente_id;
 -- -------------------------------------------------
--- produtos
+--  DROP VIEW vw_produto
 -- -------------------------------------------------
 CREATE OR REPLACE VIEW vw_produto AS
 SELECT
@@ -420,6 +419,7 @@ SELECT
   pr.data_cad,
   pr.ativo,
   ca.descricao AS categoria_descricao,
+  ca.id as categoria_id,
   ca.sigla AS categoria_sigla
 FROM
   produtos pr
@@ -595,7 +595,7 @@ END$$
 DELIMITER ;
 
 -- -----------------------------------------------------
--- procedure sp_categoria_insert
+-- drop procedure sp_categoria_insert
 -- -----------------------------------------------------
 
 DELIMITER $$
@@ -605,7 +605,7 @@ CREATE PROCEDURE `sp_categoria_insert` (
     spsigla char(3)
 )
 BEGIN
-	insert into categorias values (0,spdescricao,spsigla,default);
+	insert into categorias values (0,spsigla,spdescricao,default);
 END$$
 
 DELIMITER ;
@@ -853,7 +853,7 @@ END$$
 DELIMITER ;
 
 -- -----------------------------------------------------
--- procedure sp_niveis_insert
+-- drop procedure sp_niveis_insert
 -- -----------------------------------------------------
 
 DELIMITER $$
@@ -863,7 +863,7 @@ CREATE PROCEDURE `sp_niveis_insert` (
     spsigla char(3)
 )
 BEGIN
-	insert into niveis values (0,spdescricao,spsigla,default);
+	insert into niveis values (0,spsigla,spdescricao,default);
 END$$
 
 DELIMITER ;
@@ -1448,6 +1448,7 @@ BEGIN
 END$$
 
 DELIMITER ;
+
 
 INSERT INTO niveis (sigla, descricao, ativo)
 VALUES ('ADM', 'Administração', 1);
