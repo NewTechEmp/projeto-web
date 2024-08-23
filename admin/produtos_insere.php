@@ -1,6 +1,7 @@
 <?php
 include 'acesso_com.php';
 include '../conn/connect.php';
+
 // implementação backend a partir daqui...
 if ($_POST){
     if(isset($_POST['enviar'])){
@@ -31,7 +32,7 @@ if ($_POST){
 
 }
 // selecionar a lista de categorias para preencher <select>
-$ListaTipo = $conn->query("select * from categorias order by rotulo"); 
+$ListaTipo = $conn->query("select * from categorias order by descricao"); 
 $rowTipos = $ListaTipo->fetch_assoc();
 $numLinhas = $ListaTipo->num_rows;
 ?>
@@ -74,7 +75,7 @@ $numLinhas = $ListaTipo->num_rows;
 
                                     <option value="<?php echo $rowTipos['id'];?>">
                                         <!-- buscar tipo -->
-                                        <?php echo $rowTipos['rotulo'];?>
+                                        <?php echo $rowTipos['categoria_descricao'];?>
 
                                     </option>
                                     <?php } while($rowTipos = $ListaTipo->fetch_assoc());?>
