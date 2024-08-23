@@ -94,6 +94,7 @@
                             <span class="hidden-xs">Excluir</span>
                         </button>
                     </td>
+                    
                 </tr>
                 <?php }while($row = $lista->fetch_assoc());?>
             </tbody><!-- final corpo da tabela -->
