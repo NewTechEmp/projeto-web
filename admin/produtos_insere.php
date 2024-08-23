@@ -24,12 +24,11 @@ if ($_POST){
     $valor_unit = $_POST['valor'];
     $cod_barras = $_POST['codigodebarra'];
     $nome_imagem = $_POST['imagem'];
-    $destaque = $_POST['destaque'];
-
     
     $nome_imagem = $rand.$nome_img;
-    $insereProduto = "insert produtos (rotulo,descricao,valor_unit,cod_barras,nome_imagem,destaque,categoria_id) 
-    values ($id,'$rotulo','$descricao',$valor, '$cod_barras','$nome_imagem')";
+    $insereProduto = "insert produtos (id,rotulo,descricao,valor,imagem,codigodebarra)
+    values 
+    ($id,'$descricao','$resumo',$valor, '$imagem','$destaque')";
 
     $resultado = $conn->query($insereProduto);
     if (mysqli_insert_id($conn)) {
@@ -70,12 +69,12 @@ $numLinhas = $ListaCat->num_rows;
                     <div class="alert alert-danger" role="alert">
                         <form action="produtos_insere.php" method="post" name="form_insere"
                             enctype="multipart/form-data" id="form_insere">
-                            <label for="categoria_desc">CATEGORIA DE PRODUTO:</label>
+                            <label for="id_tipo">Tipo:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
                                 </span>
-                                <select name="categoria_desc" id="categoria_desc" class="form-control" required>
+                                <select name="id_tipo" id="id_tipo" class="form-control" required>
                                     <?php do{?>
 
 
@@ -90,10 +89,10 @@ $numLinhas = $ListaCat->num_rows;
                             <label for="destaque">Destaque:</label>
                             <div class="input-group">
                                 <label for="destaque_s" class="radio-inline">
-                                    <input type="radio" name="destaque" id="destaque" value="Sim">Sim
+                                    <input type="radio" name="destaque" id="destaque" value="1">Sim
                                 </label>
                                 <label for="destaque_n" class="radio-inline">
-                                    <input type="radio" name="destaque" id="destaque" value="Não" checked>Não
+                                    <input type="radio" name="destaque" id="destaque" value="0" checked>Não
                                 </label>
                             </div>
                             <label for="descricao">Rótulo:</label>
@@ -101,8 +100,8 @@ $numLinhas = $ListaCat->num_rows;
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
                                 </span>
-                                <input type="text" name="rotulo" id="rotulo" class="form-control"
-                                    placeholder="Digite o nome do Produto" maxlength="100" required>
+                                <input type="text" name="descricao" id="descricao" class="form-control"
+                                    placeholder="Digite a descrição do Produto" maxlength="100" required>
                             </div>
 
                             <label for="resumo">Descrição:</label>
@@ -110,7 +109,7 @@ $numLinhas = $ListaCat->num_rows;
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
                                 </span>
-                                <textarea name="descricao" id="descricao" cols="30" rows="8" class="form-control"
+                                <textarea name="resumo" id="resumo" cols="30" rows="8" class="form-control"
                                     placeholder="Digite os detalhes do Produto" required></textarea>
                             </div>
 
