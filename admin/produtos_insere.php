@@ -7,9 +7,14 @@ if ($_POST){
     if(isset($_POST['enviar'])){
         $nome_img = $_FILES['imagefile']['name'];
         $tmp_img = $_FILES['imagem']['tmp_name'];
-        $rand = rand(100001,999999);
-        $dir_img = "../images/".$rand.$nome_img;
-        move_uploaded_file($tmp_img, $dir_img);
+        $rand = rand(10000,99999);
+        // $userId = ;
+        // $userName = ;
+        // $userEmail = ;
+        $data = new DateTime();;
+        // $userNivel = ;
+        // $dir_img = "../images/".$userId.$userName.$userEmail.$userNivel.$data.$rand.$nome_img;
+        // move_uploaded_file($tmp_img, $dir_img);
 
 
     }
@@ -19,11 +24,12 @@ if ($_POST){
     $valor_unit = $_POST['valor'];
     $cod_barras = $_POST['codigodebarra'];
     $nome_imagem = $_POST['imagem'];
+    $destaque = $_POST['destaque'];
+
     
     $nome_imagem = $rand.$nome_img;
-    $insereProduto = "insert produtos (id,rotulo,descricao,valor,imagem,codigodebarra)
-    values 
-    ($id,'$descricao','$resumo',$valor, '$imagem','$destaque')";
+    $insereProduto = "insert produtos (rotulo,descricao,valor_unit,cod_barras,nome_imagem,destaque,categoria_id) 
+    values ($id,'$rotulo','$descricao',$valor, '$cod_barras','$nome_imagem')";
 
     $resultado = $conn->query($insereProduto);
     if (mysqli_insert_id($conn)) {
@@ -32,9 +38,9 @@ if ($_POST){
 
 }
 // selecionar a lista de categorias para preencher <select>
-$ListaTipo = $conn->query("select * from categorias order by descricao"); 
-$rowTipos = $ListaTipo->fetch_assoc();
-$numLinhas = $ListaTipo->num_rows;
+$ListaCat = $conn->query("select * from categorias order by descricao"); 
+$rowCaT = $ListaCat->fetch_assoc();
+$numLinhas = $ListaCat->num_rows;
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -58,27 +64,27 @@ $numLinhas = $ListaTipo->num_rows;
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </button>
                     </a>
-                    Inserindo Produtos
+                    Inserindo Produtos <?php echo $data; ?>
                 </h2>
                 <div class="thumbnail">
                     <div class="alert alert-danger" role="alert">
                         <form action="produtos_insere.php" method="post" name="form_insere"
                             enctype="multipart/form-data" id="form_insere">
-                            <label for="id_tipo">Tipo:</label>
+                            <label for="categoria_desc">CATEGORIA DE PRODUTO:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
                                 </span>
-                                <select name="id_tipo" id="id_tipo" class="form-control" required>
+                                <select name="categoria_desc" id="categoria_desc" class="form-control" required>
                                     <?php do{?>
 
 
-                                    <option value="<?php echo $rowTipos['id'];?>">
+                                    <option value="<?php echo $rowCaT['id'];?>">
                                         <!-- buscar tipo -->
-                                        <?php echo $rowTipos['categoria_descricao'];?>
+                                        <?php echo $rowCaT['descricao'];?>
 
                                     </option>
-                                    <?php } while($rowTipos = $ListaTipo->fetch_assoc());?>
+                                    <?php } while($rowCaT = $ListaCat->fetch_assoc());?>
                                 </select>
                             </div>
                             <label for="destaque">Destaque:</label>
@@ -90,21 +96,21 @@ $numLinhas = $ListaTipo->num_rows;
                                     <input type="radio" name="destaque" id="destaque" value="Não" checked>Não
                                 </label>
                             </div>
-                            <label for="descricao">Descrição:</label>
+                            <label for="descricao">Rótulo:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
                                 </span>
-                                <input type="text" name="descricao" id="descricao" class="form-control"
-                                    placeholder="Digite a descrição do Produto" maxlength="100" required>
+                                <input type="text" name="rotulo" id="rotulo" class="form-control"
+                                    placeholder="Digite o nome do Produto" maxlength="100" required>
                             </div>
 
-                            <label for="resumo">Resumo:</label>
+                            <label for="resumo">Descrição:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
                                 </span>
-                                <textarea name="resumo" id="resumo" cols="30" rows="8" class="form-control"
+                                <textarea name="descricao" id="descricao" cols="30" rows="8" class="form-control"
                                     placeholder="Digite os detalhes do Produto" required></textarea>
                             </div>
 
@@ -122,7 +128,7 @@ $numLinhas = $ListaTipo->num_rows;
                                     <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
                                 </span>
                                 <img src="" name="imagem" id="imagem" class="img-responsive">
-                                <input type="file" name="imagemfile" id="imagemfile" class="form-control"
+                                <input type="file" name="imagefile" id="imagefile" class="form-control"
                                     accept="image/*">
                             </div>
 

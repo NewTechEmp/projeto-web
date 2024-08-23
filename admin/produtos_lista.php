@@ -16,6 +16,7 @@
     <title>LISTA DE PRODUTOS - COWABUNGA</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/estilo.css">
+    
 </head>
 
 <body>
@@ -26,7 +27,7 @@
         <table class="table table-hover table-condensed tb-opacidade bg-warning">
             <thead>
                 <th class="hidden">ID</th>
-                <th>TIPO</th>
+                <th>CATEGORIA</th>
                 <th>DESCRIÇÃO</th>
                 <th>RESUMO</th>
                 <th>VALOR</th>
