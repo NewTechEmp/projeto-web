@@ -46,7 +46,7 @@
                 <?php do{?>
                 <tr>
                     <td class="hidden">
-                        <?php echo $row['id']; ?>
+                        <?php echo $row['id_do_produto']; ?>
                     </td>
                     <td>
                         <?php echo $row['categoria_id'];?>

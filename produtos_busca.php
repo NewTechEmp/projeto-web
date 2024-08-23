@@ -40,7 +40,7 @@ $numLinhas = $listaBusca -> num_rows;
                     <div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
                             <a href="produto_detalhes.php?id=<?php echo $rowBusca['id_do_produto']?>">
-                                <img src="images/<?php echo $rowBusca['imagem']?>" class="img-responsive img-rounded">
+                                <img src="images/<?php echo $rowBusca['nome_imagem']?>" class="img-responsive img-rounded">
                             </a>
                             <div class="caption text-right">
                                 <h3 class="text-danger">

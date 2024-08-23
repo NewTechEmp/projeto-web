@@ -57,19 +57,19 @@ $numLinhas = $ListaCat->num_rows;
     <main class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-offset-2 col-sm-6  col-md-8">
-                <h2 class="breadcrumb text-danger">
+                <h2 class="breadcrumb text-success">
                     <a href="produtos_lista.php">
-                        <button class="btn btn-danger">
+                        <button class="btn btn-success">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </button>
                     </a>
-                    Inserindo Produtos <?php echo $data; ?>
+                    Inserindo Produtos 
                 </h2>
                 <div class="thumbnail">
-                    <div class="alert alert-danger" role="alert">
+                    <div class="alert alert-success" role="alert">
                         <form action="produtos_insere.php" method="post" name="form_insere"
                             enctype="multipart/form-data" id="form_insere">
-                            <label for="id_tipo">Tipo:</label>
+                            <label for="id_tipo">Categoria:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
@@ -132,7 +132,7 @@ $numLinhas = $ListaCat->num_rows;
                             </div>
 
                             <br>
-                            <input type="submit" name="enviar" id="enviar" class="btn btn-danger btn-block"
+                            <input type="submit" name="enviar" id="enviar" class="btn btn-success btn-block"
                                 value="Cadastrar">
                         </form>
                     </div>
