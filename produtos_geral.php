@@ -21,18 +21,18 @@ $num_linhas = $lista->num_rows;
         <?php do{ ?>
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail ">
-                <a href="produto_detalhes.php?id=<?php echo $row_produtos['id']?>">
-                    <img src="images/<?php echo $row_produtos['imagem']?>" alt="" class="img-resposive img-rounded">
+                <a href="produto_detalhes.php?id=<?php echo $row_produtos['id_do_produto']?>">
+                    <img src="images/<?php echo $row_produtos['nome_imagem']?>" alt="" class="img-resposive img-rounded">
                 </a>
                 <div class="caption text-right bg-secondary">
                     <h3 class="text-success">
-                        <strong><?php echo $row_produtos['descricao']?></strong>
+                        <strong><?php echo $row_produtos['rotulo']?></strong>
                     </h3>
                     <p class="text-danger">
-                        <strong><?php echo $row_produtos['rotulo']?></strong>
+                        <strong><?php echo $row_produtos['categoria_descricao']?></strong>
                     </p>
                     <p class="text-left">
-                        <?php echo mb_strimwidth($row_produtos['resumo'],0,42,'...');?>
+                        <?php echo mb_strimwidth($row_produtos['descricao'],0,42,'...');?>
                     </p>
                  
                 </div>
@@ -42,3 +42,4 @@ $num_linhas = $lista->num_rows;
     </div>
  
 <?php }?>
+

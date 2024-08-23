@@ -13,12 +13,14 @@ if ($_POST){
 
     }
     $id = $_POST['id'];
-    $destaque = $_POST['destaque'];
-    $descricao = $_POST['descricao'];
     $rotulo = $_POST['rotulo'];
-    $valor = $_POST['valor'];
-    $imagem = $rand.$nome_img;
-    $insereProduto = "insert produtos (id,rotulo,descricao,valor,imagem,destaque)
+    $descricao = $_POST['descricao'];
+    $valor_unit = $_POST['valor'];
+    $cod_barras = $_POST['codigodebarra'];
+    $nome_imagem = $_POST['imagem'];
+    
+    $nome_imagem = $rand.$nome_img;
+    $insereProduto = "insert produtos (id,rotulo,descricao,valor,imagem,codigodebarra)
     values 
     ($id,'$descricao','$resumo',$valor, '$imagem','$destaque')";
 
