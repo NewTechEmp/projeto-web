@@ -29,7 +29,7 @@ if ($_POST){
 
 }
 // selecionar a lista de categorias para preencher <select>
-$ListaTipo = $conn->query("select * from categorias order by rotulo"); 
+$ListaTipo = $conn->query("select * from categorias order by descricao"); 
 $rowTipos = $ListaTipo->fetch_assoc();
 $numLinhas = $ListaTipo->num_rows;
 ?>
