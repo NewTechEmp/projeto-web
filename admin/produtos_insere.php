@@ -15,14 +15,15 @@ if ($_POST){
     $id = $_POST['id'];
     $rotulo = $_POST['rotulo'];
     $descricao = $_POST['descricao'];
-    $valor_unit = $_POST['valor'];
-    $cod_barras = $_POST['codigodebarra'];
-    $nome_imagem = $_POST['imagem'];
+    $valor = $_POST['valor_unit'];
+    $cod_barras = $_POST['cod_barras'];
+    $imagem = $_POST['nome_imagem'];
+    $destaque = $_POST['destaque'];
     
-    $nome_imagem = $rand.$nome_img;
-    $insereProduto = "insert produtos (id,rotulo,descricao,valor,imagem,codigodebarra)
+    $imagem = $rand.$nome_img;
+    $insereProduto = "insert produtos (rotulo,descricao,valor_unit,cod_barras,nome_imagem,destaque)
     values 
-    ($id,'$descricao','$resumo',$valor, '$imagem','$destaque')";
+    ('$rotulo''$descricao','$valor','$cod_barras','$imagem','$destaque')";
 
     $resultado = $conn->query($insereProduto);
     if (mysqli_insert_id($conn)) {
@@ -63,18 +64,18 @@ $numLinhas = $ListaTipo->num_rows;
                     <div class="alert alert-danger" role="alert">
                         <form action="produtos_insere.php" method="post" name="form_insere"
                             enctype="multipart/form-data" id="form_insere">
-                            <label for="id_tipo">Tipo:</label>
+                            <label for="id_tipo">Categoria:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
                                 </span>
-                                <select name="id_tipo" id="id_tipo" class="form-control" required>
+                                <select name="categoria_id" id="categoria_id" class="form-control" required>
                                     <?php do{?>
 
 
                                     <option value="<?php echo $rowTipos['id'];?>">
                                         <!-- buscar tipo -->
-                                        <?php echo $rowTipos['rotulo'];?>
+                                        <?php echo $rowTipos['categoria_descricao'];?>
 
                                     </option>
                                     <?php } while($rowTipos = $ListaTipo->fetch_assoc());?>
@@ -83,28 +84,28 @@ $numLinhas = $ListaTipo->num_rows;
                             <label for="destaque">Destaque:</label>
                             <div class="input-group">
                                 <label for="destaque_s" class="radio-inline">
-                                    <input type="radio" name="destaque" id="destaque" value="Sim">Sim
+                                    <input type="radio" name="destaque" id="destaque" value="1">Sim
                                 </label>
                                 <label for="destaque_n" class="radio-inline">
-                                    <input type="radio" name="destaque" id="destaque" value="Não" checked>Não
+                                    <input type="radio" name="destaque" id="destaque" value="0" checked>Não
                                 </label>
                             </div>
-                            <label for="descricao">Descrição:</label>
+                            <label for="descricao">Rótulo:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
                                 </span>
-                                <input type="text" name="descricao" id="descricao" class="form-control"
-                                    placeholder="Digite a descrição do Produto" maxlength="100" required>
+                                <input type="text" name="rotulo" id="rotulo" cols="30" rows="8" class="form-control"
+                                    placeholder="Digite o rótulo do produto" required>
                             </div>
 
-                            <label for="resumo">Resumo:</label>
+                            <label for="resumo">Descrição:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
                                 </span>
-                                <textarea name="resumo" id="resumo" cols="30" rows="8" class="form-control"
-                                    placeholder="Digite os detalhes do Produto" required></textarea>
+                                <textarea name="descricao" id="descricao" class="form-control"
+                                    placeholder="Descreva o produto" maxlength="100" required></textarea>
                             </div>
 
                             <label for="valor">Valor:</label>
