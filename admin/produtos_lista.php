@@ -16,6 +16,7 @@
     <title>LISTA DE PRODUTOS - COWABUNGA</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/estilo.css">
+    
 </head>
 
 <body>
@@ -27,7 +28,10 @@
             <thead>
                 <th class="hidden">ID</th>
                 <th>CATEGORIA</th>
+
+=======
                 <th>RÓTULO</th>
+
                 <th>DESCRIÇÃO</th>
                 <th>VALOR</th>
                 <th>IMAGEM</th>
@@ -45,7 +49,7 @@
                 <?php do{?>
                 <tr>
                     <td class="hidden">
-                        <?php echo $row['id']; ?>
+                        <?php echo $row['id_do_produto']; ?>
                     </td>
                     <td>
                         <?php echo $row['categoria_id'];?>

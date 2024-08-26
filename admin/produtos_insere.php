@@ -7,24 +7,28 @@ if ($_POST){
     if(isset($_POST['enviar'])){
         $nome_img = $_FILES['imagefile']['name'];
         $tmp_img = $_FILES['imagem']['tmp_name'];
-        $rand = rand(100001,999999);
-        $dir_img = "../images/".$rand.$nome_img;
-        move_uploaded_file($tmp_img, $dir_img);
+        $rand = rand(10000,99999);
+        // $userId = ;
+        // $userName = ;
+        // $userEmail = ;
+        $data = new DateTime();;
+        // $userNivel = ;
+        // $dir_img = "../images/".$userId.$userName.$userEmail.$userNivel.$data.$rand.$nome_img;
+        // move_uploaded_file($tmp_img, $dir_img);
 
 
     }
     $id = $_POST['id'];
     $rotulo = $_POST['rotulo'];
     $descricao = $_POST['descricao'];
-    $valor = $_POST['valor_unit'];
-    $cod_barras = $_POST['cod_barras'];
-    $imagem = $_POST['nome_imagem'];
-    $destaque = $_POST['destaque'];
+    $valor_unit = $_POST['valor'];
+    $cod_barras = $_POST['codigodebarra'];
+    $nome_imagem = $_POST['imagem'];
     
-    $imagem = $rand.$nome_img;
-    $insereProduto = "insert produtos (rotulo,descricao,valor_unit,cod_barras,nome_imagem,destaque)
+    $nome_imagem = $rand.$nome_img;
+    $insereProduto = "insert produtos (id,rotulo,descricao,valor,imagem,codigodebarra)
     values 
-    ('$rotulo''$descricao','$valor','$cod_barras','$imagem','$destaque')";
+    ($id,'$descricao','$resumo',$valor, '$imagem','$destaque')";
 
     $resultado = $conn->query($insereProduto);
     if (mysqli_insert_id($conn)) {
@@ -33,9 +37,9 @@ if ($_POST){
 
 }
 // selecionar a lista de categorias para preencher <select>
-$ListaTipo = $conn->query("select * from categorias order by descricao"); 
-$rowTipos = $ListaTipo->fetch_assoc();
-$numLinhas = $ListaTipo->num_rows;
+$ListaCat = $conn->query("select * from categorias order by descricao"); 
+$rowCaT = $ListaCat->fetch_assoc();
+$numLinhas = $ListaCat->num_rows;
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -53,16 +57,16 @@ $numLinhas = $ListaTipo->num_rows;
     <main class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-offset-2 col-sm-6  col-md-8">
-                <h2 class="breadcrumb text-danger">
+                <h2 class="breadcrumb text-success">
                     <a href="produtos_lista.php">
-                        <button class="btn btn-danger">
+                        <button class="btn btn-success">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </button>
                     </a>
-                    Inserindo Produtos
+                    Inserindo Produtos 
                 </h2>
                 <div class="thumbnail">
-                    <div class="alert alert-danger" role="alert">
+                    <div class="alert alert-success" role="alert">
                         <form action="produtos_insere.php" method="post" name="form_insere"
                             enctype="multipart/form-data" id="form_insere">
                             <label for="id_tipo">Categoria:</label>
@@ -70,16 +74,16 @@ $numLinhas = $ListaTipo->num_rows;
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
                                 </span>
-                                <select name="categoria_id" id="categoria_id" class="form-control" required>
+                                <select name="id_tipo" id="id_tipo" class="form-control" required>
                                     <?php do{?>
 
 
-                                    <option value="<?php echo $rowTipos['id'];?>">
+                                    <option value="<?php echo $rowCaT['id'];?>">
                                         <!-- buscar tipo -->
-                                        <?php echo $rowTipos['categoria_descricao'];?>
+                                        <?php echo $rowCaT['descricao'];?>
 
                                     </option>
-                                    <?php } while($rowTipos = $ListaTipo->fetch_assoc());?>
+                                    <?php } while($rowCaT = $ListaCat->fetch_assoc());?>
                                 </select>
                             </div>
                             <label for="destaque">Destaque:</label>
@@ -96,8 +100,8 @@ $numLinhas = $ListaTipo->num_rows;
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
                                 </span>
-                                <input type="text" name="rotulo" id="rotulo" cols="30" rows="8" class="form-control"
-                                    placeholder="Digite o rótulo do produto" required>
+                                <input type="text" name="descricao" id="descricao" class="form-control"
+                                    placeholder="Digite a descrição do Produto" maxlength="100" required>
                             </div>
 
                             <label for="resumo">Descrição:</label>
@@ -105,8 +109,8 @@ $numLinhas = $ListaTipo->num_rows;
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
                                 </span>
-                                <textarea name="descricao" id="descricao" class="form-control"
-                                    placeholder="Descreva o produto" maxlength="100" required></textarea>
+                                <textarea name="resumo" id="resumo" cols="30" rows="8" class="form-control"
+                                    placeholder="Digite os detalhes do Produto" required></textarea>
                             </div>
 
                             <label for="valor">Valor:</label>
@@ -123,12 +127,12 @@ $numLinhas = $ListaTipo->num_rows;
                                     <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
                                 </span>
                                 <img src="" name="imagem" id="imagem" class="img-responsive">
-                                <input type="file" name="imagemfile" id="imagemfile" class="form-control"
+                                <input type="file" name="imagefile" id="imagefile" class="form-control"
                                     accept="image/*">
                             </div>
 
                             <br>
-                            <input type="submit" name="enviar" id="enviar" class="btn btn-danger btn-block"
+                            <input type="submit" name="enviar" id="enviar" class="btn btn-success btn-block"
                                 value="Cadastrar">
                         </form>
                     </div>

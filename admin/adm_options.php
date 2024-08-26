@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <title>Document</title>
+</head>
+<body>
 <main class="container">
 <h1 class="breadcrumb">Área Administrativa</h1>
 <div class="row"><!-- manter os elementos na linha -->
@@ -111,10 +121,10 @@
 </div><!-- fecha col -->
 <!-- fecha ADM USUÁRIOS -->
  
-<!-- INICIO RESERVA -->
 
-<!-- FIM RESERVA -->
  
 </div><!-- fecha row -->
  
 </main>
+</body>
+</html>

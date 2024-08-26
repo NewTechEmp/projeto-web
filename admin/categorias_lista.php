@@ -27,7 +27,7 @@ $rowsCat = $listaCats->num_rows;
             <thead>
                 <th class="hidden">ID</th>
                 <th>SIGLA</th>
-                <th>RÓTULO</th>
+                <th>DESCRIÇÃO</th>
                 <th>
                     <a href="categorias_insere.php" target="_self" class="btn btn-primary btn-xs" role="button">
                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -47,7 +47,7 @@ $rowsCat = $listaCats->num_rows;
                         <span class="hidden-xs"></span>
                     </td>
                     <td>
-                        <?php echo $rowCat['rotulo'];?>
+                        <?php echo $rowCat['descricao'];?>
                         <span class="visible-xs"></span>
                         <span class="hidden-xs"></span>
                     </td>
@@ -58,10 +58,10 @@ $rowsCat = $listaCats->num_rows;
                             <span class="hidden-xs">Alterar</span>
                         </a>
                         <?php  
-                        $regra = $conn->query("select rotulo from categorias where id =".$rowCat['id']);
+                        $regra = $conn->query("select descricao from categorias where id =".$rowCat['id']);
                         $regraRow = $regra->fetch_assoc();
                         ?>
-                        <button data-nome="<?php echo $rowCat['rotulo']; ?>" data-id="<?php echo $rowCat['id']; ?>"
+                        <button data-nome="<?php echo $rowCat['descricao']; ?>" data-id="<?php echo $rowCat['id']; ?>"
                             class="delete btn btn-xs  btn-danger">
                             <span class="glyphicon glyphicon-trash"></span>
                             <span class="">Excluir</span>
