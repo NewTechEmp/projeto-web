@@ -28,8 +28,11 @@
             <thead>
                 <th class="hidden">ID</th>
                 <th>CATEGORIA</th>
+
+=======
+                <th>RÓTULO</th>
+
                 <th>DESCRIÇÃO</th>
-                <th>RESUMO</th>
                 <th>VALOR</th>
                 <th>IMAGEM</th>
                 <th>
