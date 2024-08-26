@@ -5,30 +5,28 @@ include '../conn/connect.php';
 // implementação backend a partir daqui...
 if ($_POST){
     if(isset($_POST['enviar'])){
-        $nome_img = $_FILES['imagefile']['name'];
-        $tmp_img = $_FILES['imagem']['tmp_name'];
-        $rand = rand(10000,99999);
+         $nome_img = $_FILES['imagefile']['name'];
+         $tmp_img = $_FILES['imagem']['tmp_name'];
+        $rand = rand(100000,999999);
         // $userId = ;
         // $userName = ;
-        // $userEmail = ;
+       //  $userEmail = ;
         $data = new DateTime();;
-        // $userNivel = ;
-        // $dir_img = "../images/".$userId.$userName.$userEmail.$userNivel.$data.$rand.$nome_img;
-        // move_uploaded_file($tmp_img, $dir_img);
+         //$userNivel = ;
+         $dir_img = "../images/".$rand.$nome_img;
+         move_uploaded_file($tmp_img, $dir_img);
 
 
     }
-    $id = $_POST['id'];
+    $categoria_id = $_POST['categoria_id'];
     $rotulo = $_POST['rotulo'];
     $descricao = $_POST['descricao'];
-    $valor_unit = $_POST['valor'];
-    $cod_barras = $_POST['codigodebarra'];
-    $nome_imagem = $_POST['imagem'];
-    
-    $nome_imagem = $rand.$nome_img;
-    $insereProduto = "insert produtos (id,rotulo,descricao,valor,imagem,codigodebarra)
-    values 
-    ($id,'$descricao','$resumo',$valor, '$imagem','$destaque')";
+    $valor = $_POST['valor'];
+    $cod_barras = $_POST['cod_barras'];
+    $imagem = $rand.$nome_img;
+    $destaque = $_POST['destaque']; 
+    $insereProduto = "INSERT produtos (rotulo,descricao,valor_unit,cod_barras,nome_imagem,destaque,categoria_id)
+    VALUES ('$rotulo','$descricao',$valor,'$cod_barras','$imagem','$destaque','$categoria_id')";
 
     $resultado = $conn->query($insereProduto);
     if (mysqli_insert_id($conn)) {
@@ -69,12 +67,12 @@ $numLinhas = $ListaCat->num_rows;
                     <div class="alert alert-success" role="alert">
                         <form action="produtos_insere.php" method="post" name="form_insere"
                             enctype="multipart/form-data" id="form_insere">
-                            <label for="id_tipo">Categoria:</label>
+                            <label for="categoria_id">Categoria:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
                                 </span>
-                                <select name="id_tipo" id="id_tipo" class="form-control" required>
+                                <select name="categoria_id" id="categoria_id" class="form-control" required>
                                     <?php do{?>
 
 
@@ -95,22 +93,22 @@ $numLinhas = $ListaCat->num_rows;
                                     <input type="radio" name="destaque" id="destaque" value="0" checked>Não
                                 </label>
                             </div>
-                            <label for="descricao">Rótulo:</label>
+                            <label for="rotulo">Rótulo:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
                                 </span>
-                                <input type="text" name="descricao" id="descricao" class="form-control"
-                                    placeholder="Digite a descrição do Produto" maxlength="100" required>
+                                <input type="text" name="rotulo" id="rotulo" class="form-control"
+                                    placeholder="Digite o rótulo do produto" maxlength="100" required>
                             </div>
 
-                            <label for="resumo">Descrição:</label>
+                            <label for="descricao">Descrição:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
                                 </span>
-                                <textarea name="resumo" id="resumo" cols="30" rows="8" class="form-control"
-                                    placeholder="Digite os detalhes do Produto" required></textarea>
+                                <textarea name="descricao" id="descricao" cols="30" rows="8" class="form-control"
+                                    placeholder="Digite a descrição do produto" required></textarea>
                             </div>
 
                             <label for="valor">Valor:</label>
@@ -120,6 +118,14 @@ $numLinhas = $ListaCat->num_rows;
                                 </span>
                                 <input type="number" name="valor" id="valor" class="form-control" required min="0"
                                     step="0.01">
+                            </div>
+                            <label for="cod_barras">Código de barras:</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                </span>
+                                <input type="text" name="cod_barras" id="cod_barras" class="form-control"
+                                    placeholder="Digite o código do produto" maxlength="20" required>
                             </div>
                             <label for="imagem">Imagem:</label>
                             <div class="input-group">

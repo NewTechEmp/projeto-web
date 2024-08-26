@@ -70,7 +70,7 @@
                         <span class="input-group-addon" id="basic-addon1">
                             <span class="glyphicon glyphicon-user"></span>
                         </span>
-                        <input type="text" name="nome_contato" placeholder="digite seu nome"
+                        <input type="text" name="nome_contato" placeholder="Digite seu Nome"
                             aria-describedby="basic-addon1" class="form-control" required>
                     </span>
                 </p>
@@ -79,7 +79,7 @@
                         <span class="input-group-addon" id="basic-addon2">
                             <span class="glyphicon glyphicon-envelope"></span>
                         </span>
-                        <input type="text" name="email_contato" placeholder="digite seu email"
+                        <input type="text" name="email_contato" placeholder="Digite seu Email"
                             aria-describedby="basic-addon2" class="form-control" required>
                     </span>
                 </p>
@@ -88,7 +88,7 @@
                         <span class="input-group-addon" id="basic-addon2">
                             <span class="glyphicon glyphicon-tags"></span>
                         </span>
-                        <input type="text" name="assunto_contato" placeholder="digite o Assunto do email"
+                        <input type="text" name="assunto_contato" placeholder="Digite o assunto do email"
                             aria-describedby="basic-addon2" class="form-control" required>
                     </span>
                 </p>
@@ -97,7 +97,7 @@
                         <span class="input-group-addon" id="basic-addon3">
                             <span class="glyphicon glyphicon-pencil"></span>
                         </span>
-                        <textarea name="comentario_contato" cols="30" rows="5" placeholder="digite seu comentário"
+                        <textarea name="comentario_contato" cols="30" rows="5" placeholder="Digite seu Comentário"
                             aria-describedby="basic-addon3" class="form-control" required>
                             </textarea>
                     </span>

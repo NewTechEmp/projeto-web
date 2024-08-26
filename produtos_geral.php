@@ -34,7 +34,12 @@ $num_linhas = $lista->num_rows;
                     <p class="text-left">
                         <?php echo mb_strimwidth($row_produtos['descricao'],0,42,'...');?>
                     </p>
-                 
+                    <a href="http://localhost/projeto-web/carrinho.php">
+                 <button class="btn-block btn-success glyphicon">
+                    <span class="glyphicon-shopping-cart" aria-hidden="true"></span>
+                        Adicionar ao Carrinho
+                 </button>
+                 </a>
                 </div>
             </div>
         </div>

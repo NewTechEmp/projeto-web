@@ -1,7 +1,7 @@
 <?php
 include 'acesso_com.php';
 include '../conn/connect.php';
-include '';
+
 if($_POST){ //se o usuario clicou no botão atualizar
     if($_FILES['imagemfile']['name']){ // se o usuario escolher um imagem
         unlink("../images/".$_POST['imagem_atual']); //apaga a imagem atual
@@ -30,13 +30,12 @@ if($_POST){ //se o usuario clicou no botão atualizar
     set  rotulo = '$rotulo',
 
     descricao = '$descricao',
-    valor_unit = '$valor',
+    valor_unit = $valor,
     cod_barras = '$cod_bar',
     nome_imagem  = '$nome_img',
     destaque = '$destaque',
     data_cad = '$data_cad',
     categoria_id = '$id_categoria',
-    ativo = $ativo
     where id = $id;";
     $resultado = $conn->query($update);
  
@@ -76,27 +75,27 @@ $numLinhas = $lista->num_rows;
 
         <div class="row">
             <div class="col-xs-12 col-sm-offset-2 col-sm-6  col-md-8">
-                <h2 class="breadcrumb text-danger">
+                <h2 class="breadcrumb text-c">
                     <a href="produtos_lista.php">
-                        <button class="btn btn-danger">
+                        <button class="btn btn-success">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </button>
                     </a>
                     Atualizando Produtos
                 </h2>
                 <div class="thumbnail">
-                    <div class="alert alert-danger" role="alert">
+                    <div class="alert alert-success" role="alert">
                         <form action="produtos_atualiza.php" method="post" name="form_insere"
                             enctype="multipart/form-data" id="form_insere">
                             <!-- O campo id deve permanecer oculto por isso estamos usando o hidden  -->
                             <input type="hidden" name="id" id="id" value="<?php echo $row['id'];?>">
 
-                            <label for="id_tipo">Categoria:</label>
+                            <label for="categoria_id">Categoria:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
                                 </span>
-                                <select name="id_tipo" id="id_tipo" class="form-control" required>
+                                <select name="categoria_id" id="categoria_id" class="form-control" required>
                                     <?php do {?>
                                     <option value="<?php echo $rowTipo['id'] ?>" <?php
  
@@ -114,30 +113,30 @@ $numLinhas = $lista->num_rows;
                             <label for="destaque">Destaque:</label>
                             <div class="input-group">
                                 <label for="destaque_s" class="radio-inline">
-                                    <input type="radio" name="destaque" id="destaque" value="Sim"
-                                        <?php echo $row['destaque']=="Sim"?'checked':null; ?>>Sim
+                                    <input type="radio" name="destaque" id="destaque" value="1"
+                                        <?php echo $row['destaque']=="1"?'checked':null; ?>>Sim
                                 </label>
                                 <label for="destaque_n" class="radio-inline">
-                                    <input type="radio" name="destaque" id="destaque" value="Não"
-                                        <?php echo $row['destaque']=="Não"?'checked':null; ?>>Não
+                                    <input type="radio" name="destaque" id="destaque" value="0"
+                                        <?php echo $row['destaque']=="0"?'checked':null; ?>>Não
                                 </label>
                             </div>
-                            <label for="descri">Rótulo:</label>
+                            <label for="rotulo">Rótulo:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
                                 </span>
-                                <input type="text" name="descricao" id="descricao" class="form-control"
-                                    placeholder="Digite a descrição do Produto" maxlength="100"
+                                <input type="text" name="rotulo" id="rotulo" class="form-control"
+                                    placeholder="Digite o nome do Produto" maxlength="100"
                                     value="<?php echo $row['rotulo']; ?>">
                             </div>
 
-                            <label for="resumo">Descrição:</label>
+                            <label for="descricao">Descrição:</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
                                 </span>
-                                <textarea name="resumo" id="resumo" cols="30" rows="8" class="form-control"
+                                <textarea name="descricao" id="descricao" cols="30" rows="8" class="form-control"
                                     placeholder="Digite os detalhes do Produto"> <?php echo $row['descricao'];?></textarea>
 
                             </div>
@@ -166,7 +165,7 @@ $numLinhas = $lista->num_rows;
                             </div>
 
                             <br>
-                            <input type="submit" name="atualizar" id="atualizar" class="btn btn-danger btn-block"
+                            <input type="submit" name="atualizar" id="atualizar" class="btn btn-success btn-block"
                                 value="Atualizar">
                         </form>
                     </div>
