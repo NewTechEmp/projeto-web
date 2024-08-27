@@ -36,7 +36,9 @@ $rowsCat = $listaCats->num_rows;
                 </th>
             </thead>
             <tbody>
-                <?php do{?>
+                <?php do{
+                        if ($row !== null) {
+                    ?>
                 <tr>
                     <td class="hidden">
                         <?php echo $rowCat['id']; ?>
@@ -69,7 +71,7 @@ $rowsCat = $listaCats->num_rows;
                     </td>
 
                 </tr>
-                <?php }while($rowCat = $listaCats->fetch_assoc());?>
+                <?php }}while($rowCat = $listaCats->fetch_assoc());?>
             </tbody>
         </table>
     </main>
