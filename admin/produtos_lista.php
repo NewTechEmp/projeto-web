@@ -42,7 +42,11 @@
             <tbody>
                 <!-- início corpo da tabela -->
                 <!-- início estrutura repetição -->
-                <?php do{?>
+                <?php do{
+                            if ($row !==  NULL) {
+
+                                
+                            ?>
                 <tr>
                     <td class="hidden">
                         <?php echo $row['id_do_produto']; ?>
@@ -95,8 +99,9 @@
                         </button>
                     </td>
                     
+                    
                 </tr>
-                <?php }while($row = $lista->fetch_assoc());?>
+                <?php }}while($row = $lista->fetch_assoc());?>
             </tbody><!-- final corpo da tabela -->
         </table>
     </main>
