@@ -38,7 +38,9 @@ $rowsUsuarios = $listaUsuarios->num_rows;
                 </th>
             </thead>
             <tbody>
-                <?php do{?>
+                <?php do{
+                        if ($row !== null) {
+                    ?>
                 <tr>
                     <td class="hidden">
                         <?php echo $rowUsuario['id']; ?>
@@ -81,7 +83,7 @@ $rowsUsuarios = $listaUsuarios->num_rows;
 
                     </td>
                 </tr>
-                <?php }while($rowUsuario = $listaUsuarios->fetch_assoc());?>
+                <?php }}while($rowUsuario = $listaUsuarios->fetch_assoc());?>
             </tbody>
         </table>
     </main>
