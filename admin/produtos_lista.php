@@ -3,9 +3,8 @@
  include '../conn/connect.php';
  $lista = $conn->query("select * from vw_produto");
  $row = $lista->fetch_assoc(); // cria uma array e associa os dados do banco
- $rows = $lista->num_rows; 
+ $rows = $lista->num_rows;
 
- 
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -89,7 +88,7 @@
                         <button data-nome="<?php echo $row['rotulo']; ?>"
                         data-id="<?php echo $row['id_do_produto']; ?>" 
                         class="delete btn btn-xs btn-block btn-danger
-                        <?php echo $regraRow['destaque'] == 'Não'?'':'hidden' ?>"
+                        <?php echo $regraRow['destaque'] == 'Não'?>"
                         >
                             <span class="glyphicon glyphicon-trash"></span>
                             <span class="hidden-xs">Excluir</span>

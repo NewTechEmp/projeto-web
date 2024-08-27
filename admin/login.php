@@ -44,40 +44,40 @@
     <title> Cowabunga | Login</title>
 </head>
 
-<body>
+<body class="fundofixo">
     <main class="container">
         <section>
             <article>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-                        <h1 class="breadcrumb text-info text-center">Faça seu login</h1>
+                        <h1 class="breadcrumb text-secondary text-center">Faça seu login</h1>
                         <div class="thumbnail">
-                            <p class="text-info text-center" role="alert">
+                            <p class="text-secondary text-center" role="alert">
                                 <i class="fas fa-users fa-10x"></i>
                             </p>
                             <br>
-                            <div class="alert alert-info" role="alert">
+                            <div class="alert alert-secondary" role="alert">
                                 <form action="login.php" name="form_login" id="form_login" method="POST"
                                     enctype="multipart/form-data">
                                     <label for="nome_usuario">Nome:</label>
                                     <p class="input-group">
                                         <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-user text-info" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-user text-secondary" aria-hidden="true"></span>
                                         </span>
                                         <input type="text" name="nome" id="nome" class="form-control" autofocus
-                                            required autocomplete="off" placeholder="Digite seu nome.">
+                                            required autocomplete="off" placeholder="Digite seu nome">
                                     </p>
                                     <label for="senha">Senha:</label>
                                     <p class="input-group">
                                         <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-qrcode text-info"
+                                            <span class="glyphicon glyphicon-qrcode text-secondary"
                                                 aria-hidden="true"></span>
                                         </span>
                                         <input type="password" name="senha" id="senha" class="form-control" required
-                                            autocomplete="off" placeholder="Digite sua senha.">
+                                            autocomplete="off" placeholder="Digite sua senha">
                                     </p>
                                     <p class="text-right">
-                                        <input type="submit" value="Entrar" class="btn btn-primary">
+                                        <input type="submit" value="Entrar" class="btn btn-secondary">
                                     </p>
                                 </form>
                                 <p class="text-center">

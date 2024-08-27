@@ -13,7 +13,7 @@ $num_linhas = $lista->num_rows;
 <?php }?>
  
 <?php if($num_linhas > 0) {  ?>
-    <h2 class="breadcrum alert-success">
+    <h2 class="breadcrumb alert-success">
         Produtos em destaque !
     </h2>
     <div class="row">
