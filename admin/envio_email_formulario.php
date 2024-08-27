@@ -28,7 +28,7 @@ $rowEmail = $listaEmail->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/estilo.css">
-    <title>Envio de Email | CHULETA</title>
+    <title>Envio de Email | Cowabunga</title>
 </head>
 
 <body>
