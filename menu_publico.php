@@ -48,7 +48,7 @@ $rows_tipo = $lista_tipo ->fetch_all();
                     <form action="produtos_busca.php" method="get" name="form-busca" id="form-busca"
                         class="navbar-form navbar-left" role="search">
                         <div class="input-group">
-                            <input type="search" name="buscar" id="buscar" size="9" class="form-control"
+                            <input type="search" name="buscar" id="buscar" size="19" class="form-control"
                                 aria-label="search" placeholder="Buscar produto" required>
                             <div class="input-group-btn">
                                 <button class="btn btn-default" type="submit">
@@ -60,7 +60,7 @@ $rows_tipo = $lista_tipo ->fetch_all();
                     <!-- FIM formulário de busca -->
                     <li class="active">
                         <a href="admin/index.php">
-                            <span class="glyphicon glyphicon-user">&nbsp;ADMIN/CLIENTE</span>
+                       <span class="glyphicon glyphicon-user">&nbsp;ADMIN/CLIENTE&nbsp;&nbsp;</span>
                         </a>
                     </li>
                 </ul>

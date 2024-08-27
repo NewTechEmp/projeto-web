@@ -10,7 +10,7 @@
                 <i>Avenida Paulista, 807 - São Paulo - São Paulo - SP - CEP 01310-930</i>
                 <br>
                 <span class="glyphicon glyphicon-phone-alt"></span>
-                &nbsp;(11) 4002-9200
+                &nbsp;(11) 4002-8922
                 <br>
                 <span class="glyphicon glyphicon-envelope"></span>
                 &nbsp;
