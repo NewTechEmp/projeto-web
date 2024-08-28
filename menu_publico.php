@@ -4,15 +4,29 @@ $lista_tipo = $conn->query('select * from categorias order by descricao');
 $rows_tipo = $lista_tipo ->fetch_all();
 
 ?>
-<!-- abre a barra de navegação -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <title>Document</title>
+</head>
+<body>
 <nav class="navbar navbar-expanded-md navbar-fixed-top navbar-light navbar-inverse">
     <div class="row">
         <div class="collapse navbar-collapse" id="menupublico">
             <div class="col-md-4">
                 <ul class="nav navbar-nav navbar-left">
-                    <li class="active">
-                        <a href="index.php">
+                    <li class="active nav-item">
+                        <a href="index.php" class="nav-link">
                             <span class="glyphicon glyphicon-home"></span>
+                        </a>
+                    </li>
+                    <li class="active nav-item">
+                    <a href="carrinho.php" class="nav-link">
+                            <span class="glyphicon glyphicon-shopping-cart"></span>
                         </a>
                     </li>
                 </ul>
@@ -68,3 +82,6 @@ $rows_tipo = $lista_tipo ->fetch_all();
         </div>
     </div>
 </nav>
+</body>
+</html>
+
