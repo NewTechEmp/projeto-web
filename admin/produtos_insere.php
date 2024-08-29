@@ -2,28 +2,6 @@
 include 'acesso_com.php';
 include '../conn/connect.php';
 
-function getLocalIPAddress() {
-    try {
-        // Obtém o nome do host da máquina
-        $hostName = gethostname();
-
-        // Obtém os registros DNS do tipo A para o nome do host
-        $records = dns_get_record($hostName, DNS_A);
-
-        // Verifica se há registros e se são do tipo IPv4
-        if (!empty($records)) {
-            foreach ($records as $record) {
-                if (isset($record['ip'])) {
-                    return $record['ip']; // Retorna o primeiro endereço IP encontrado
-                }
-            }
-        }
-
-        return "IP não encontrado"; // Retorna uma mensagem caso não encontre um IP
-    } catch (Exception $ex) {
-        return "Erro ao obter IP: " . $ex->getMessage(); // Retorna uma mensagem de erro
-    }
-}
 function formatString($string) {
     // Substitui todos os caracteres que não sejam letras, números ou espaços por underscores
     return preg_replace('/[^a-zA-Z0-9]/', '_', $string);
@@ -43,7 +21,7 @@ if ($_POST){
         $dataAtual = new DateTime(); // Data e hora atual
         $dataFormatada = $dataAtual->format('Y_m_d_H_i_s'); // Data e hora formatadas
         $nivelUsuario = formatString($_SESSION['nivel_usuario']); // Nível do usuário formatado
-        $enderecoIp = formatString(getLocalIPAddress()); // IP formatado
+        $enderecoIp = filter_input(INPUT_SERVER, REMOTE_ADDR,FILTER_VALIDADE_IP); // IP formatado
         $ipFormatado = str_replace(".","_",$enderecoIp);
         // Extraindo a extensão e o nome base do arquivo
         $extensaoArquivo = pathinfo($nome_img, PATHINFO_EXTENSION); // Extensão da imagem
