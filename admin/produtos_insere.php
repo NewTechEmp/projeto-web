@@ -2,20 +2,59 @@
 include 'acesso_com.php';
 include '../conn/connect.php';
 
+function getLocalIPAddress() {
+    try {
+        // Obtém o nome do host da máquina
+        $hostName = gethostname();
+
+        // Obtém os registros DNS do tipo A para o nome do host
+        $records = dns_get_record($hostName, DNS_A);
+
+        // Verifica se há registros e se são do tipo IPv4
+        if (!empty($records)) {
+            foreach ($records as $record) {
+                if (isset($record['ip'])) {
+                    return $record['ip']; // Retorna o primeiro endereço IP encontrado
+                }
+            }
+        }
+
+        return "IP não encontrado"; // Retorna uma mensagem caso não encontre um IP
+    } catch (Exception $ex) {
+        return "Erro ao obter IP: " . $ex->getMessage(); // Retorna uma mensagem de erro
+    }
+}
+function formatString($string) {
+    // Substitui todos os caracteres que não sejam letras, números ou espaços por underscores
+    return preg_replace('/[^a-zA-Z0-9]/', '_', $string);
+}
 // implementação backend a partir daqui...
 if ($_POST){
     if(isset($_POST['enviar'])){
-         $nome_img = $_FILES['imagefile']['name'];
-         $tmp_img = $_FILES['imagem']['tmp_name'];
-        // $userId = ;
-        // $userName = ;
-       //  $userEmail = ;
-        $data = new DateTime();;
-         //$userNivel = ;
-         $dir_img = "../images/".$nome_img;
-         move_uploaded_file($tmp_img, $dir_img);
-
-
+        // pegando a imagem
+        $nome_img = $_FILES['imagefile']['name'];
+        $tmp_img = $_FILES['imagefile']['tmp_name'];
+        // Gerar um número aleatório
+        $numeroAleatorio = rand(100000, 999999);
+        // Obtendo dados do usuário
+        $usuarioId = $_SESSION['id_usuario'];
+        $usuarioNome = formatString($_SESSION['nome_usuario']); // Nome do usuário formatado
+        $usuarioEmail = formatString($_SESSION['email_usuario']); // Email do usuário formatado
+        $dataAtual = new DateTime(); // Data e hora atual
+        $dataFormatada = $dataAtual->format('Y_m_d_H_i_s'); // Data e hora formatadas
+        $nivelUsuario = formatString($_SESSION['nivel_usuario']); // Nível do usuário formatado
+        $enderecoIp = formatString(getLocalIPAddress()); // IP formatado
+        $ipFormatado = str_replace(".","_",$enderecoIp);
+        // Extraindo a extensão e o nome base do arquivo
+        $extensaoArquivo = pathinfo($nome_img, PATHINFO_EXTENSION); // Extensão da imagem
+        $nomeBase = pathinfo($nome_img, PATHINFO_FILENAME); // Nome base da imagem
+        $nomeFormatado = formatString($nomeBase);
+        // Montando o novo nome do arquivo
+        $nomeFormatado = str_replace(" ","_",$nomeBase);
+        $novoNomeArquivo = "$enderecoIp-$usuarioId-$usuarioNome-$usuarioEmail-$nivelUsuario-$dataFormatada-$numeroAleatorio-$nomeFormatado.$extensaoArquivo";
+        // movendo a imagem para a pasta
+        $dir_img = "../images/".$novoNomeArquivo;
+        move_uploaded_file($tmp_img, $dir_img);
     }
     $categoria_id = $_POST['categoria_id'];
     $rotulo = $_POST['rotulo'];
@@ -25,7 +64,7 @@ if ($_POST){
     $imagem = $rand.$nome_img;
     $destaque = $_POST['destaque']; 
     $insereProduto = "INSERT produtos (rotulo,descricao,valor_unit,cod_barras,nome_imagem,destaque,categoria_id)
-    VALUES ('$rotulo','$descricao',$valor,'$cod_barras','$imagem','$destaque','$categoria_id')";
+    VALUES ('$rotulo','$descricao',$valor,'$cod_barras','$novoNomeArquivo','$destaque','$categoria_id')";
 
     $resultado = $conn->query($insereProduto);
     if (mysqli_insert_id($conn)) {
@@ -35,7 +74,7 @@ if ($_POST){
 }
 // selecionar a lista de categorias para preencher <select>
 $ListaCat = $conn->query("select * from categorias order by descricao"); 
-$rowCaT = $ListaCat->fetch_assoc();
+$rowCat = $ListaCat->fetch_assoc();
 $numLinhas = $ListaCat->num_rows;
 ?>
 <!DOCTYPE html>
@@ -72,15 +111,17 @@ $numLinhas = $ListaCat->num_rows;
                                     <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
                                 </span>
                                 <select name="categoria_id" id="categoria_id" class="form-control" required>
-                                    <?php do{?>
+                                    <?php do{
+                                        if ($rowCat !== null) {
+                                        ?>
 
 
-                                    <option value="<?php echo $rowCaT['id'];?>">
+                                    <option value="<?php echo $rowCat['id'];?>">
                                         <!-- buscar tipo -->
-                                        <?php echo $rowCaT['descricao'];?>
+                                        <?php echo $rowCat['descricao'];?>
 
                                     </option>
-                                    <?php } while($rowCaT = $ListaCat->fetch_assoc());?>
+                                    <?php }} while($rowCat = $ListaCat->fetch_assoc());?>
                                 </select>
                             </div>
                             <label for="destaque">Destaque:</label>

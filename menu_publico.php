@@ -81,7 +81,7 @@ $rows_tipo = $lista_tipo ->fetch_all();
                     </form>
                     <!-- FIM formulário de busca -->
                     <li class="active">
-                        <a href="admin/index.php">
+                        <a href="menu_login.php">
                        <span class="glyphicon glyphicon-user">&nbsp;ADMIN/CLIENTE&nbsp;&nbsp;</span>
                         </a>
                     </li>
