@@ -24,20 +24,19 @@ $numlinhasDestaque = $listaDestaque->num_rows;
     <?php  include 'menu_publico.php'?>
     <div class="container">
         <h2 class="breadcrumb alert-danger">
-            <a>
+            <a href="index.php">
                 <button class="btn btn-danger">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </button>
-                <!-- tag roger strong -->
-                <strong>Detalhes do Produto</strong>
             </a>
+            <strong>Detalhes do Produto</strong>
         </h2>
         <div class="row">
             <?php do{?>
             <div class="thumbnail">
                 <a href="produto_detalhes.php">
                     <img src="images/<?php echo $linhaDestaque['nome_imagem'] ?>"
-                        alt="images<?php echo $linhaDestaque['descricao'] ?>>" class="img-responsive img-rounded"
+                        alt="images<?php echo $linhaDestaque['rotulo'] ?>" class="img-responsive img-rounded"
                         style="heigth: 20em ;">
                 </a>
                 <div class="caption text-center">
@@ -52,9 +51,10 @@ $numlinhasDestaque = $listaDestaque->num_rows;
                         <strong><?php echo $linhaDestaque['descricao']?></strong>
                     </p>
                     <p>
-                        <a href="index.php" class="btn btn-danger" role="button">
-                            <span class="hidden-xs">Retornar</span>
-                            <span class="visible-xs glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <a href="carrinho.php" class="btn btn-danger" role="button">
+                            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                             &nbsp;
+                            <span class="hidden-xs">Adicionar ao carrinho</span>
                         </a>
                     </p>
                 </div>

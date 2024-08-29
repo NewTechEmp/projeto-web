@@ -42,6 +42,12 @@ $num_linhas = $lista->num_rows;
                                 <span class="hidden-xs glyphicon glyphicon-eye-open" aria-hidden="true"></span>                        
                             </a>
                         </p>
+                            <a href="carrinho.php">
+                                <button class="btn-block btn-success glyphicon" >
+                                    <span class="glyphicon-shopping-cart" aria-hidden="true"></span>
+                                    Adicionar ao Carrinho
+                                </button>
+                            </a>
                     </div>
                 </div>
             </div>

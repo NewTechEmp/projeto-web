@@ -7,13 +7,12 @@ if ($_POST){
     if(isset($_POST['enviar'])){
          $nome_img = $_FILES['imagefile']['name'];
          $tmp_img = $_FILES['imagem']['tmp_name'];
-        $rand = rand(100000,999999);
         // $userId = ;
         // $userName = ;
        //  $userEmail = ;
         $data = new DateTime();;
          //$userNivel = ;
-         $dir_img = "../images/".$rand.$nome_img;
+         $dir_img = "../images/".$nome_img;
          move_uploaded_file($tmp_img, $dir_img);
 
 

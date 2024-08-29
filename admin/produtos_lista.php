@@ -63,7 +63,7 @@
                             echo '<span class="glyphicon glyphicon-ok text-success aria-hidden = "true"></span>';
                         }
                         echo '&nbsp';
-                        echo $row['descricao']; 
+                        echo $row['rotulo']; 
                         ?>
                     </td>
                     <td>

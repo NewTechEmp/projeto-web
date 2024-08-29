@@ -39,7 +39,7 @@ $rowsUsuarios = $listaUsuarios->num_rows;
             </thead>
             <tbody>
                 <?php do{
-                        if ($row !== null) {
+                        if ($rowUsuario !== null) {
                     ?>
                 <tr>
                     <td class="hidden">

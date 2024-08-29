@@ -7,10 +7,10 @@ if($_POST){ //se o usuario clicou no botão atualizar
         unlink("../images/".$_POST['imagem_atual']); //apaga a imagem atual
         $nome_img = $_FILES['imagemfile']['name'];
         $tmp_img = $_FILES['imagemfile']['tmp_name'];
-        $rand = rand(100001,999999); //gera um numero aleatorio da imagem para diferenciar
-        $dir_img = "../images/".$rand.$nome_img;
+        // $rand = rand(100001,999999); //gera um numero aleatorio da imagem para diferenciar
+        $dir_img = "../images/".$nome_img;
         move_uploaded_file($tmp_img, $dir_img); // tranfere a imagem para a pasta
-        $nome_img = $rand.$nome_img;
+        $nome_img = $nome_img;
     }else{
         $nome_img = $_POST['imagem_atual'];
     }
@@ -18,24 +18,18 @@ if($_POST){ //se o usuario clicou no botão atualizar
     $rotulo = $_POST['rotulo'];
     $descricao = $_POST['descricao'];
     $valor = $_POST['valor'];
-    $cod_bar = $_POST['cod_barras'];
-    $nome_img = $_POST['nome_imagem'];
+    $nome_img = $_POST['imagem_atual'];
     $destaque = $_POST['destaque'];
-    $data_cad = $_POST['data_cad'];
     $id_categoria = $_POST['categoria_id'];
-    $ativo = $_POST['ativo'];
     
  
     $update = "update produtos
     set  rotulo = '$rotulo',
-
     descricao = '$descricao',
-    valor_unit = $valor,
-    cod_barras = '$cod_bar',
+    valor_unit = '$valor',
     nome_imagem  = '$nome_img',
     destaque = '$destaque',
-    data_cad = '$data_cad',
-    categoria_id = '$id_categoria',
+    categoria_id = '$id_categoria'
     where id = $id;";
     $resultado = $conn->query($update);
  

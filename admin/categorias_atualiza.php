@@ -5,11 +5,11 @@ include '../conn/connect.php';
 if($_POST){
     $id = $_POST['id'];
     $siglaCat = $_POST['sigla'];
-    $siglaRotulo = $_POST['rotulo'];
+    $sigladescricao = $_POST['descricao'];
 
     $updateCat = " update categorias
-    set categorias = '$siglaCat',
-    rotulo = '$siglaRotulo'
+    set sigla = '$siglaCat',
+    descricao = '$sigladescricao'
     where id = $id;";
     $resultado = $conn->query($updateCat);
     if($resultado){
@@ -70,9 +70,9 @@ $rowCat = $listaCat->fetch_assoc();
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                 </span>
-                                <input type="text" name="rotulo" id="rotulo" class="form-control"
-                                    placeholder="Digite o rótulo" maxlength="20"
-                                    value="<?php echo $rowCat['rotulo']; ?>">
+                                <input type="text" name="descricao" id="" class="form-control"
+                                    placeholder="Digite a descrição" maxlength="20"
+                                    value="<?php echo $rowCat['descricao']; ?>">
                             </div>
                             <br>
                             <input type="submit" name="atualizar" id="atualizar" class="btn btn-danger btn-block"

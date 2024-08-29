@@ -4,13 +4,11 @@
         <li data-target="#banners" data-slide-to="1"></li>
         <!-- <li data-target="#banners" data-slide-to="2"></li> -->
     </ol>
-    <a href="reserva.php" style="color: aliceblue;">
         <div class="marquee">
             <marquee behavior="scroll" direction="rigth" width="1140" bgcolor="#800080" vspace="5" text-color="white"
-                text-color="white"> NA COMPRA ACIMA DE 3 PIZZAS LEVA UMA BEBIDA 2L GRATIS E 5% DE DESCONTO, NÃO SE
-                ESQUEÇA NA VIDA TUDO OQUE É BOM ACABA EM PIZZA!!!</marquee>
+                text-color="white" style="color: aliceblue;cursor:default;"> NA COMPRA ACIMA DE 3 PIZZAS LEVA UMA BEBIDA 2L GRATIS E 5% DE DESCONTO, NÃO SE
+                ESQUEÇA NA VIDA TUDO O QUE É BOM ACABA EM PIZZA!!!</marquee>
         </div>
-    </a>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
             <img src="images/banner1-cowa.jpg" alt="" class="center-block">
