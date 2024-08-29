@@ -13,8 +13,9 @@ $rows_tipo = $lista_tipo ->fetch_all();
                     <li class="active">
                         <a href="index.php">
                             <span class="glyphicon glyphicon-home"></span>
-                        </a>
+                        </a> 
                     </li>
+                    
                 </ul>
             </div>
             <div class="col-md-4">
@@ -44,6 +45,13 @@ $rows_tipo = $lista_tipo ->fetch_all();
             </div>
             <div class="col-md-4">
                 <ul class="nav navbar-nav navbar-right">
+            
+                    <li class="active">
+                        <a href="carrinho.php">
+                            <span class="glyphicon glyphicon-shopping-cart"></span>
+                        </a> 
+                    </li>
+                    
                     <!-- inicio formulário de buscar -->
                     <form action="produtos_busca.php" method="get" name="form-busca" id="form-busca"
                         class="navbar-form navbar-left" role="search">

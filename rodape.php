@@ -7,10 +7,10 @@
             <br>
             <i><strong> A melhor pizzaria da Zona Leste</strong></i>
             <address>
-                <i>Avenida Paulista, 807 - São Paulo - São Paulo - SP - CEP 01310-930</i>
+                <i>Av. Itaquera, 6904 - Artur Alvim, São Paulo - SP, 08285-065</i>
                 <br>
                 <span class="glyphicon glyphicon-phone-alt"></span>
-                &nbsp;(11) 4002-8922
+                &nbsp;(11) 9400-2892
                 <br>
                 <span class="glyphicon glyphicon-envelope"></span>
                 &nbsp;
@@ -20,9 +20,7 @@
             </address>
             <div class="embed-responsive embed-responsive-4by3">
                 <!-- local para iframe -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0526715751753!2d-46.65071160000001!3d-23.5665517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8ee7e7daf%3A0x6713fe046df40b95!2sAv.%20Paulista%2C%20807%20-%20Jardim%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001419-002!5e0!3m2!1spt-BR!2sbr!4v1724070432437!5m2!1spt-BR!2sbr" 
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.5019796795027!2d-46.465021723760266!3d-23.550408261191546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce66ec09e52445%3A0x8f1ed6139100298a!2sAv.%20Itaquera%2C%206904%20-%20Artur%20Alvim%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2008285-065!5e0!3m2!1spt-PT!2sbr!4v1724849127732!5m2!1spt-PT!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                </iframe>
                 <!-- fim iframe -->
             </div>
         </div>
@@ -70,7 +68,7 @@
                         <span class="input-group-addon" id="basic-addon1">
                             <span class="glyphicon glyphicon-user"></span>
                         </span>
-                        <input type="text" name="nome_contato" placeholder="Digite seu Nome"
+                        <input type="text" name="nome_contato" placeholder="Digite seu nome"
                             aria-describedby="basic-addon1" class="form-control" required>
                     </span>
                 </p>
@@ -79,7 +77,7 @@
                         <span class="input-group-addon" id="basic-addon2">
                             <span class="glyphicon glyphicon-envelope"></span>
                         </span>
-                        <input type="text" name="email_contato" placeholder="Digite seu Email"
+                        <input type="text" name="email_contato" placeholder="Digite seu email"
                             aria-describedby="basic-addon2" class="form-control" required>
                     </span>
                 </p>

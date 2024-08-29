@@ -34,12 +34,22 @@ $num_linhas = $lista->num_rows;
                     <p class="text-left">
                         <?php echo mb_strimwidth($row_produtos['descricao'],0,42,'...');?>
                     </p>
-                    <a href="http://localhost/projeto-web/carrinho.php">
-                 <button class="btn-block btn-success glyphicon" >
-                    <span class="glyphicon-shopping-cart" aria-hidden="true"></span>
-                        Adicionar ao Carrinho
-                 </button>
-                 </a>
+                    <p>
+                           <button class="btn btn-default disabled" role="button" style=cursor: default;>
+                                <?php echo "R$ " .number_format($row_produtos['valor_unit'],2,',','.') ?>
+                            </button>
+                            <a href="produto_detalhes.php?id=<?php echo $row_produtos['id_do_produto']; ?>">
+                                <span class="hidden-xs">Saiba mais...</span>
+                                <span class="hidden-xs glyphicon glyphicon-eye-open" aria-hidden="true"></span>                        
+                            </a>
+                        </p>
+                            <a href="carrinho.php">
+                                <button class="btn-block btn-success glyphicon cart" >
+                                    <span class="glyphicon-shopping-cart" aria-hidden="true">
+                                    </span>
+                                    Adicionar ao carrinho
+                                </button>
+                            </a>
                 </div>
             </div>
         </div>

@@ -37,7 +37,7 @@ $rowsCat = $listaCats->num_rows;
             </thead>
             <tbody>
                 <?php do{
-                        if ($row !== null) {
+                        if ($rowCat !== null) {
                     ?>
                 <tr>
                     <td class="hidden">
@@ -63,11 +63,12 @@ $rowsCat = $listaCats->num_rows;
                         $regra = $conn->query("select descricao from categorias where id =".$rowCat['id']);
                         $regraRow = $regra->fetch_assoc();
                         ?>
-                        <button data-nome="<?php echo $rowCat['descricao']; ?>" data-id="<?php echo $rowCat['id']; ?>"
-                            class="delete btn btn-xs  btn-danger">
+                        <a href="categorias_delete.php?id=<?php echo $rowCat['id'] ?>" role="button"
+                            class="btn btn-danger  btn-xs">
                             <span class="glyphicon glyphicon-trash"></span>
-                            <span class="">Excluir</span>
-                        </button>
+                            <span class="hidden-xs">Excluir</span>
+                        </a>
+                        
                     </td>
 
                 </tr>
