@@ -2,31 +2,46 @@
  include '../conn/connect.php';
  // inicia a verificação do login
  if($_POST){
-        $nome = $_POST['nome'];
+        $email = $_POST['email'];
         $senha = $_POST['senha'];
-        $nomeRes = $conn->query("select * from usuarios where nome = '$nome' and senha = '$senha' ");
-        $rownome = $nomeRes->fetch_assoc();
-        $numRow = $nomeRes->num_rows;
-        // se a sessão não existir 
-        if(!isset($_SESSION)){
-            $sessaoAntiga = session_name('cowabungaaa');
-            session_start();
-            $session_name_new = session_name();
+        $options= [
+            'options' => 10,
+        ];
+        password_hash($senha,PASSWORD_BCRYPT,$options);
+        $userRes = $conn->query("select * from usuarios where email = '$email' and ativo = 1");
+        $rowUser = $userRes->fetch_assoc();
+        $numRow = $userRes->num_rows;
+        if (password_verify($senha, $rowUser['senha'])) {
+            $nivelRes = $conn->query("select * from niveis where upper(descricao) = upper('cliente')");
+            $rowNivel = $nivelRes->fetch_assoc();
+            // se a sessão não existir
+            if(!isset($_SESSION)){
+                $sessaoAntiga = session_name('cowabungaaa');
+                session_start();
+                $session_name_new = session_name();
 
-        }
-        if($numRow > 0){
-            $_SESSION['nome_usuario'] = $nome;
-            $_SESSION['nivel_usuario'] = $rownome['nivel_id'];
-            $_SESSION['nome_da_sessao'] = session_name();
-            if($rownome['nivel_id'] == 1){
-                echo "<script>window.open('index.php','_self')</script>";
-            }else{
-                echo "<script>window.open('../cliente/index.php?cliente=".$nome."','_self')</script>";
+            }
+            if($numRow > 0){
+                // fazendo select em nivel
+                $idNivel = $rowUser['nivel_id'];
+                $nivelRes = $conn->query("select * from niveis where id = $idNivel");
+                $nivelRow = $nivelRes->fetch_assoc();
+                // adicionando valores a variavel de sessão
+                $_SESSION['id_usuario'] = $rowUser['id'];
+                $_SESSION['nome_usuario'] = $rowUser['nome'];
+                $_SESSION['nivel_usuario'] = $nivelRow['descricao'];
+                $_SESSION['email_usuario'] = $rowUser['email'];
+                $_SESSION['nome_da_sessao'] = session_name();
+                if($rowUser['nivel_id'] != $rowNivel['id']){
+                    echo "<script>window.open('index.php','_self')</script>";
+                }else{
+                    echo "<script>window.open('../cliente/index.php?cliente=".$email."','_self')</script>";
+                }
+            }
+            else{
+                echo "<script>window.open('invasor.php','_self')</script>";
             }
         }
-         else{
-             echo "<script>window.open('invasor.php','_self')</script>";
-         }
  }
 ?>
 <!DOCTYPE html>
@@ -41,7 +56,7 @@
     <!-- Link para CSS específico -->
     <link rel="stylesheet" href="../css/estilo.css" type="text/css">
 
-    <title> Cowabunga | Login</title>
+    <title> Cowabunga | Login Administrativo</title>
 </head>
 
 <body class="fundofixo">
@@ -59,13 +74,13 @@
                             <div class="alert alert-secondary" role="alert">
                                 <form action="login.php" name="form_login" id="form_login" method="POST"
                                     enctype="multipart/form-data">
-                                    <label for="nome_usuario">Nome:</label>
+                                    <label for="nome_usuario">Email:</label>
                                     <p class="input-group">
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-user text-secondary" aria-hidden="true"></span>
                                         </span>
-                                        <input type="text" name="nome" id="nome" class="form-control" autofocus
-                                            required autocomplete="off" placeholder="Digite seu nome">
+                                        <input type="text" name="email" id="login" class="form-control" autofocus
+                                            required autocomplete="off" placeholder="Digite seu email">
                                     </p>
                                     <label for="senha">Senha:</label>
                                     <p class="input-group">
