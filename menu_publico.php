@@ -24,11 +24,6 @@ $rows_tipo = $lista_tipo ->fetch_all();
                             <span class="glyphicon glyphicon-home"></span>
                         </a> 
                     </li>
-                    <li class="active nav-item">
-                    <a href="carrinho.php" class="nav-link">
-                            <span class="glyphicon glyphicon-shopping-cart"></span>
-                        </a>
-                    </li>
                     
                 </ul>
             </div>
@@ -82,7 +77,7 @@ $rows_tipo = $lista_tipo ->fetch_all();
                     <!-- FIM formulário de busca -->
                     <li class="active">
                         <a href="admin/index.php">
-                       <span class="glyphicon glyphicon-user">&nbsp;ADMIN/CLIENTE&nbsp;&nbsp;</span>
+                       <span class="glyphicon glyphicon-user">&nbsp;LOGIN&nbsp;&nbsp;</span>
                         </a>
                     </li>
                 </ul>
